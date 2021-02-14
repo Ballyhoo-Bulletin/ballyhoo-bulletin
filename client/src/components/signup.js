@@ -52,6 +52,9 @@ export default function Signup() {
                     <Form.Group id="password-confirm">
                         <Form.Label>Password Confirmation</Form.Label>
                         <Form.Control type="password" ref={passwordConfirmRef} required />
+                        <Form.Group controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="I am over 18" />
+  </Form.Group>
                     </Form.Group>
                     <Button disabled={loading} className="w-100"type="submit">Sign Up</Button>
                 </Form>
