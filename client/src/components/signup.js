@@ -39,7 +39,7 @@ export default function Signup() {
 
     return (
         <>
-           <Card>
+           <Card border="secondary" style={{ width: '25rem' }}>
                <Card.Body>
                    <h2 className="text-center mb-4">Sign Up</h2>
                    {/* {currentUser.email} */}

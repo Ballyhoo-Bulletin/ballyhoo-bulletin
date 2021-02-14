@@ -6,28 +6,14 @@ h2 {
     /* font-weight: 700; */
 }
 
-#name {
+#name,
+#email,
+#password,
+#password-confirm,
+#zipCode,
+#selectSkills
+ {
     font-family: 'Comfortaa', cursive;
     
 }
 
-#email {
-    font-family: 'Comfortaa', cursive;
-}
-
-#password {
-    font-family: 'Comfortaa', cursive;
-}
-
-
-#password-confirm {
-    font-family: 'Comfortaa', cursive;
-}
-
-#zipCode {
-    font-family: 'Comfortaa', cursive;
-}
-
-#selectSkills {
-    font-family: 'Comfortaa', cursive;
-}
