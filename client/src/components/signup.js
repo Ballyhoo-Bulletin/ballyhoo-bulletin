@@ -9,6 +9,9 @@ export default function Signup() {
     const passwordConfirmRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
+    const nameRef = useRef()
+    const zipCodeRef = useRef()
+    
     const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -41,6 +44,10 @@ export default function Signup() {
                    {/* {currentUser.email} */}
                    {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
+                <Form.Group id="name">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="name" ref={nameRef} required />
+                    </Form.Group>
                     <Form.Group id="email">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" ref={emailRef} required />
@@ -52,10 +59,28 @@ export default function Signup() {
                     <Form.Group id="password-confirm">
                         <Form.Label>Password Confirmation</Form.Label>
                         <Form.Control type="password" ref={passwordConfirmRef} required />
-                        <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="I am over 18" />
-  </Form.Group>
                     </Form.Group>
+                     <Form.Group controlId="formBasicCheckbox">
+                         <Form.Check type="checkbox" label="I am over 18" />
+                     </Form.Group> 
+                     <Form.Group id="zipCode">
+                        <Form.Label>Zip Code</Form.Label>
+                        <Form.Control type="zipCode" ref={zipCodeRef} required />
+                    </Form.Group> 
+                    <Form.Group controlId="exampleForm.ControlSelect2">
+                    <Form.Label>Select Skills</Form.Label>
+                        <Form.Control as="select" multiple>
+                        <option>Cooking</option>
+                        <option>Cleaning</option>
+                        <option>Education</option>
+                        <option>Mechanics</option>
+                        <option>Landscaping</option>
+                        <option>Childcare</option>
+                        <option>Pet Care</option>
+                        <option>Other</option>
+                        <option>Fill Out Later</option>
+                        </Form.Control>
+                     </Form.Group>
                     <Button disabled={loading} className="w-100"type="submit">Sign Up</Button>
                 </Form>
                </Card.Body>
