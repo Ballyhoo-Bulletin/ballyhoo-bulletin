@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-// import "../styles/signup.css";
+import "./styles/signup.css";
 
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
@@ -69,7 +69,7 @@ export default function Signup() {
                         <Form.Control type="zipCode" ref={zipCodeRef} required />
                     </Form.Group> 
                     
-                    <Form.Group controlId="exampleForm.ControlSelect2">
+                    <Form.Group controlId="selectSkills">
                     <Form.Label>Select Skills</Form.Label>
                         <Form.Control as="select" multiple>
                          <option>Cooking</option>
