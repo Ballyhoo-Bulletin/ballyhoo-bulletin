@@ -70,7 +70,7 @@ export default function Signup() {
                     </Form.Group> 
                     
                     <Form.Group controlId="selectSkills">
-                    <Form.Label>Select Skills</Form.Label>
+                    <Form.Label id="selectSkills">Select Skills</Form.Label>
                         <Form.Control as="select" multiple>
                          <option>Cooking</option>
                         <option>Cleaning</option>
