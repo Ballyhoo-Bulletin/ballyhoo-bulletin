@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+// import "../styles/signup.css";
 
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
@@ -11,7 +12,7 @@ export default function Signup() {
     const passwordRef = useRef()
     const nameRef = useRef()
     const zipCodeRef = useRef()
-    
+
     const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -53,7 +54,7 @@ export default function Signup() {
                         <Form.Control type="email" ref={emailRef} required />
                     </Form.Group>
                     <Form.Group id="password">
-                        <Form.Label>password</Form.Label>
+                        <Form.Label>Password</Form.Label>
                         <Form.Control type="password" ref={passwordRef} required />
                     </Form.Group>
                     <Form.Group id="password-confirm">
@@ -67,10 +68,11 @@ export default function Signup() {
                         <Form.Label>Zip Code</Form.Label>
                         <Form.Control type="zipCode" ref={zipCodeRef} required />
                     </Form.Group> 
+                    
                     <Form.Group controlId="exampleForm.ControlSelect2">
                     <Form.Label>Select Skills</Form.Label>
                         <Form.Control as="select" multiple>
-                        <option>Cooking</option>
+                         <option>Cooking</option>
                         <option>Cleaning</option>
                         <option>Education</option>
                         <option>Mechanics</option>
@@ -81,6 +83,7 @@ export default function Signup() {
                         <option>Fill Out Later</option>
                         </Form.Control>
                      </Form.Group>
+                    
                     <Button disabled={loading} className="w-100"type="submit">Sign Up</Button>
                 </Form>
                </Card.Body>
