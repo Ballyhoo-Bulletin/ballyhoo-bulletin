@@ -62,9 +62,9 @@ export default function Signup() {
                         <Form.Label>Password Confirmation</Form.Label>
                         <Form.Control type="password" ref={passwordConfirmRef} required />
                     </Form.Group>
-                     <Form.Group controlId="formBasicCheckbox">
+                     {/* <Form.Group controlId="formBasicCheckbox">
                          <Form.Check type="checkbox" label="I am over 18" />
-                     </Form.Group> 
+                     </Form.Group>  */}
                      <Form.Group id="zipCode">
                         <Form.Label>Zip Code</Form.Label>
                         <Form.Control type="zipCode" ref={zipCodeRef} required />
