@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Button, Alert } from "react-bootstrap";
+import { Card, Button, Alert, NavBar} from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
@@ -20,6 +20,7 @@ export default function Dashboard() {
     }
     return (
         <>
+        {/* <Navbar></Navbar> */}
         <Card>
             <Card.Body>
             <h2 className="text-center mb-4">Ballyhoo Bulletin Feed</h2>
