@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
+const tradeSchema =  require("./trade");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: { type: String, required: true },
-  dob: { type: Number, required: true },
+  name: { 
+    type: String, 
+    required: true },
+  dob: { 
+    type: Number, 
+    required: true },
   email: {
     type: String,
     required: true,
@@ -15,22 +20,23 @@ const userSchema = new Schema({
       }
     },
   },
-  trade: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Trade"
-    }
-  ],
+  trade: {
+    type:[tradeSchema],
+    required: false
+  },
   password: {
     type: String,
     required: true,
     validate: function (answer) {
       if (answer < 5) {
         return "Password must be greater than 5 characters.";
-      } 
+      }
     },
   },
-  zipcode: { type: Number, required: true },
+  zipcode: { 
+    type: Number, 
+    required: true 
+  },
   confirm: {
     type: Boolean,
     validate: function (answer) {
@@ -41,7 +47,10 @@ const userSchema = new Schema({
       }
     },
   },
-  date: { type: Date, default: Date.now },
+  date: { 
+    type: Date, 
+    default: Date.now }
+    ,
 });
 
 const User = mongoose.model("User", userSchema);
