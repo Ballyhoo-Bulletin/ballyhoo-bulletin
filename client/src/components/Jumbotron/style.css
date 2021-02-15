@@ -4,6 +4,25 @@ background-image: url("../Jumbotron/imgJum/Nav-logo.png");
 background-size: 200px;
 background-position-x: 100px;
 background-repeat: no-repeat;
+ background-color: red;
+
+}
+
+.myText {
+
+font-family: cursive;
+
+}
+
+.jumbotron{
+    background-color: red;
+    z-index: -1;
+
+    /* padding:0px; */
+/* padding-top:4rem;
+padding-right:2rem;
+padding-bottom: 2rem;
+padding-left: 2rem; */
 
 
 }

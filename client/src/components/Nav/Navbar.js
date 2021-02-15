@@ -28,8 +28,23 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item active">
-              <Link className="nav-link" to="/trade">
-                Trade
+              <Link className="nav-link" to="/user trade">
+                User Trade
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/Profile">
+                Profile
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/transaction histroy">
+                Transaction Histroy
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/trade post form">
+                Trade Post Form
               </Link>
             </li>
           </ul>
