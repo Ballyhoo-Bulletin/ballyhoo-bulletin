@@ -1,6 +1,6 @@
 module.exports = {
     User: require("./user"),
-    Trade: require("./trade")
+    // Trade: require("./trade")
     
   };
   
