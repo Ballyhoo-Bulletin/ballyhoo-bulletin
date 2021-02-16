@@ -75,18 +75,8 @@ export default function Signup() {
                     <Form.Group controlId="selectSkills">
                     <Form.Label id="selectSkills">Select Skills</Form.Label>
                         <Form.Control as="select" multiple>
-                        <MDBSelect>
-          <MDBSelectInput selected="Choose your option" />
-          <MDBSelectOptions>
-            <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-            <MDBSelectOption value="1">Option 1</MDBSelectOption>
-            <MDBSelectOption value="2">Option 2</MDBSelectOption>
-            <MDBSelectOption value="3">Option 3</MDBSelectOption>
-            <MDBSelectOption value="4">Option 4</MDBSelectOption>
-            <MDBSelectOption value="5">Option 5</MDBSelectOption>
-          </MDBSelectOptions>
-        </MDBSelect>
-                         {/* <option>Cooking</option>
+        
+                         <option>Cooking</option>
                         <option>Cleaning</option>
                         <option>Education</option>
                         <option>Mechanics</option>
@@ -94,7 +84,7 @@ export default function Signup() {
                         <option>Childcare</option>
                         <option>Pet Care</option>
                         <option>Other</option>
-                        <option>Fill Out Later</option> */}
+                        <option>Fill Out Later</option>
                       
                         </Form.Control>
 
