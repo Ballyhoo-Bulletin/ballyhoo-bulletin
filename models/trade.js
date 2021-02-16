@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// const mongoose = require("mongoose");
+// const Schema = mongoose.Schema;
 
 
 // https://mongoosejs.com/docs/schematypes.html#arrays
 
-const tradeSchema = new Schema({
-  any: [Schema.Types.Mixed],
-  group:["Skill", "Item", "Other"], 
+// const tradeSchema = new Schema({
+//   any: [Schema.Types.Mixed],
+//   group:["Skill", "Item", "Other"], 
   
-});
+// });
 
 
 
@@ -26,6 +26,6 @@ const tradeSchema = new Schema({
   
 // });
 
-const Trade = mongoose.model("trade", tradeSchema);
+// const Trade = mongoose.model("trade", tradeSchema);
 
-module.exports = Trade;
+// module.exports = Trade;
