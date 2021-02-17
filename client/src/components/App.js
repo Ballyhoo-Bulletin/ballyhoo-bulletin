@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import Signup from "./Signup";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Dashboard from "./Dashboard/Dashboard";
-import Login from "./Login";
+import AuthPage from "../pages/Auth";
 import PrivateRoute from "./PrivateRoute";
-import Jumbotron from "../components/Jumbotron/Jumbotron";
-import Navbar from "../components/Nav/Navbar";
+
 import Footer from "../components/Footer/Footer";
 import Home from "../pages/Home";
 import TradePostFormPage from "../pages/TradePostFormPage";
@@ -39,23 +37,18 @@ import "./App.css";
 const App = () => {
   return (
     <Router>
-      <Navbar />
       <div className="application">
         <main className="main">
-          <Container>
-            <Jumbotron />
-          </Container>
           <Container>
             <AuthProvider>
               <Switch>
                 <PrivateRoute exact path="/" component={Home} />
                 <PrivateRoute
                   exact
-                  path="/tradepostformpage"
+                  path="/tradepost"
                   component={TradePostFormPage}
                 />
-                <Route path="/signup" component={Signup} />
-                <Route path="/login" component={Login} />
+                <Route path="/auth" component={AuthPage} />
               </Switch>
             </AuthProvider>
           </Container>

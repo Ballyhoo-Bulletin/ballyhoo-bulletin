@@ -1,9 +1,6 @@
 import React, { useRef } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
-import { ADD_POST, LOADING } from "../../utils/actions";
-import { useStoreContext } from "../../utils/GlobalState";
-import TradePost from "../TradePost/TradePost";
 import "./style.css";
 
 const TradePostForm = () => {
@@ -16,12 +13,9 @@ const TradePostForm = () => {
   // state management:
   // "../utils/GlobalState"
   // ../../utils/actions
-  const [state, dispatch] = useStoreContext();
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    e.preventDefault();
-    dispatch({ type: LOADING });
     API.savePost({
       group: groupRef.current.value,
       body: bodyRef.current.value,
@@ -29,17 +23,13 @@ const TradePostForm = () => {
       photo: photoRef.current.value,
     })
       .then((result) => {
-        dispatch({
-          type: ADD_POST,
-          post: result.data,
-        });
+        //global store needs to be setup before doing anything with reducerHook
+        console.log(result);
       })
       .catch((err) => console.log(err));
 
     bodyRef.current.value = "";
   };
-
-  alert(`Hello ${currentUser.email} your Trade request has been submitted.`);
 
   return (
     <div>
@@ -78,9 +68,7 @@ const TradePostForm = () => {
         </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
-            <Button disabled={state.loading} type="submit">
-              Post Trade
-            </Button>
+            <Button type="submit">Post Trade</Button>
           </Col>
         </Form.Group>
       </Form>

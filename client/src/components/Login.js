@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
-export default function Login() {
+export default function Login(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
@@ -52,7 +52,13 @@ export default function Login() {
       </Card>
 
       <div className="w-100 text-center-mt-2">
-        Need an account? <Link to="/signup">Sign up</Link>
+        Need an account?{" "}
+        <span
+          onClick={props.signup}
+          style={{ textDecoration: "underline", cursor: "pointer" }}
+        >
+          Sign Up
+        </span>
       </div>
     </div>
   );
