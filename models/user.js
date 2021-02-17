@@ -1,13 +1,9 @@
 const mongoose = require("mongoose");
-const tradeSchema =  require("./trade");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   name: { 
     type: String, 
-    required: true },
-  dob: { 
-    type: Number, 
     required: true },
   email: {
     type: String,
@@ -20,10 +16,14 @@ const userSchema = new Schema({
       }
     },
   },
-  trade: {
-    type:[tradeSchema],
-    required: false
+trade: [
+  {
+    type: {
+      type: String,
+    },
+    name: String,
   },
+],
   password: {
     type: String,
     required: true,
@@ -37,19 +37,7 @@ const userSchema = new Schema({
     type: Number, 
     required: true 
   },
-  confirm: {
-    type: Boolean,
-    validate: function (answer) {
-      if (answer !== false && dob > 2003) {
-        return true;
-      } else {
-        return "You must be at least 18 years old to create an account.";
-      }
-    },
-  },
-  date: { 
-    type: Date, 
-    default: Date.now }
+  day: { type: Date, default: () => new Date() }
     ,
 });
 
