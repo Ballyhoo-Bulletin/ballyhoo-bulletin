@@ -10,8 +10,10 @@ import "./styles/signup.css";
 
 export default function Signup(props) {
   const passwordConfirmRef = useRef();
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
+  const zipCodeRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -43,18 +45,25 @@ export default function Signup(props) {
           <h2 className="text-center mb-4">Sign Up</h2>
           {/* {currentUser.email} */}
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group id="email">
+          <Form onSubmit={handleSubmit}>            
+          <Form.Group id="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="name" ref={nameRef} required />
+            </Form.Group><Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label>password</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <Form.Group id="password-confirm">
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
+            </Form.Group>
+            <Form.Group id="zipCode">
+              <Form.Label>Zip Code</Form.Label>
+              <Form.Control type="zipCode" ref={zipCodeRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
