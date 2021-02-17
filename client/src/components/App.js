@@ -1,32 +1,62 @@
 import React, { Component } from "react";
-import Signup from "./Signup";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import Login from "./Login";
+// import Dashboard from "./Dashboard/Dashboard";
+import AuthPage from "../pages/Auth";
 import PrivateRoute from "./PrivateRoute";
 
-function App() {
-  return (
-    <Container className="d-flex align-ites-center justify-content-center" 
-    style={ { minHeight: "100vh" }}
-    >
-    <div className="w-100" style={{ maxWidth: "400px"}}>
-    <Router>
-      <AuthProvider>
-        <Switch>
-          <PrivateRoute exact path="/" component={Dashboard} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
-        </Switch>
-     </AuthProvider>
-    </Router> 
-    </div>
-    </Container>
-  )
-  
-}
+import Footer from "../components/Footer/Footer";
+import Home from "../pages/Home";
+import TradePostFormPage from "../pages/TradePostFormPage";
+import "./App.css";
 
+// function App() {
+//   return (
+//     <Container
+//       className="d-flex align-ites-center justify-content-center"
+//       style={{ minHeight: "100vh" }}
+//     >
+//       <div className="w-100" style={{ maxWidth: "400px" }}>
+//         <Router>
+//           <AuthProvider>
+//             <Switch>
+//               <PrivateRoute exact path="/" component={Dashboard} />
+//               <Route path="/signup" component={Signup} />
+//               <Route path="/login" component={Login} />
+//             </Switch>
+//           </AuthProvider>
+//         </Router>
+//       </div>
+//     </Container>
+//   );
+// }
+
+// export default App;
+
+const App = () => {
+  return (
+    <Router>
+      <div className="application">
+        <main className="main">
+          <Container>
+            <AuthProvider>
+              <Switch>
+                <PrivateRoute exact path="/" component={Home} />
+                <PrivateRoute
+                  exact
+                  path="/tradepost"
+                  component={TradePostFormPage}
+                />
+                <Route path="/auth" component={AuthPage} />
+              </Switch>
+            </AuthProvider>
+          </Container>
+          <Footer />
+        </main>
+      </div>
+    </Router>
+  );
+};
 
 export default App;
