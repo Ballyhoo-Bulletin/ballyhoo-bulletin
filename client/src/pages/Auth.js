@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import Signup from "../components/Signup";
+import Signup from "../components/signup";
 import Login from "../components/Login";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import Navbar from "../components/Nav/Navbar";
