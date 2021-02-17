@@ -1,0 +1,28 @@
+.imgJum {
+
+background-image: url("../Jumbotron/imgJum/Nav-logo.png");
+background-size: 200px;
+background-position-x: 100px;
+background-repeat: no-repeat;
+
+
+}
+
+.myText {
+
+font-family: cursive;
+
+}
+
+.jumbotron{
+   
+
+    /* padding:0px; */
+/* padding-top:4rem;
+padding-right:2rem;
+padding-bottom: 2rem;
+padding-left: 2rem; */
+
+
+}
+
