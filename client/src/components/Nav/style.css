@@ -6,12 +6,12 @@
 
 .navbar {
     
-    margin: 0 10px 20px 10px;
+    margin: 0 -10px 20px -10px;
     background-image: url("../Nav/imageNav/navbar-image.jpg");
     height: 180px;
-    background-position-x: 717px;
+    background-position-x: 500px;
     background-repeat: no-repeat;
-    
+   
     background-color: bisque;
     border-radius: 15px;
     

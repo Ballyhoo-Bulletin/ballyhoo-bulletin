@@ -17,7 +17,7 @@ function SideNavbar() {
           </Link>
         </li>
         <li className="nav-item active">
-          <Link className="nav-link" to="/login">
+          <Link className="nav-link" to="/auth">
             Logout
           </Link>
         </li>

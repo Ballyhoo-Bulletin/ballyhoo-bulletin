@@ -9,7 +9,7 @@ export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Container>
         <Jumbotron />
       </Container>
