@@ -3,12 +3,14 @@ import Signup from "./Signup";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from "./Dashboard";
+// import Dashboard from "./Dashboard/Dashboard";
 import Login from "./Login";
 import PrivateRoute from "./PrivateRoute";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import Navbar from "../components/Nav/Navbar";
 import Footer from "../components/Footer/Footer";
+import Home from "../pages/Home";
+import TradePostFormPage from "../pages/TradePostFormPage";
 import "./App.css";
 
 // function App() {
@@ -40,19 +42,22 @@ const App = () => {
       <Navbar />
       <div className="application">
         <main className="main">
-          {/* <div className="wrapper"> */}
           <Container>
             <Jumbotron />
           </Container>
           <Container>
             <AuthProvider>
               <Switch>
-                <PrivateRoute exact path="/" component={Dashboard} />
+                <PrivateRoute exact path="/" component={Home} />
+                <PrivateRoute
+                  exact
+                  path="/tradepostformpage"
+                  component={TradePostFormPage}
+                />
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
               </Switch>
             </AuthProvider>
-            {/* </div> */}
           </Container>
           <Footer />
         </main>

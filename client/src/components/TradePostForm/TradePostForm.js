@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
 import API from "../../utils/API";
 import { ADD_POST, LOADING } from "../../utils/actions";
-import { useStoreContext } from "../utils/GlobalState";
+import { useStoreContext } from "../../utils/GlobalState";
+import TradePost from "../TradePost/TradePost";
 import "./style.css";
 
 const TradePostForm = () => {
@@ -12,11 +13,10 @@ const TradePostForm = () => {
   const tradeRef = useRef();
   const photoRef = useRef();
 
-  // state management: 
-    // "../utils/GlobalState"
-      // ../../utils/actions
+  // state management:
+  // "../utils/GlobalState"
+  // ../../utils/actions
   const [state, dispatch] = useStoreContext();
-
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
