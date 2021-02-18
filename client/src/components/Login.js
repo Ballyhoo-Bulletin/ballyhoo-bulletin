@@ -52,13 +52,7 @@ export default function Login(props) {
       </Card>
 
       <div className="w-100 text-center-mt-2">
-        Need an account?{" "}
-        <span
-          onClick={props.signup}
-          style={{ textDecoration: "underline", cursor: "pointer" }}
-        >
-          Sign Up
-        </span>
+        Need an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
   );

@@ -87,13 +87,7 @@ export default function Signup(props) {
         </Card.Body>
       </Card>
       <div className="w-100 text-center-mt-2">
-        Already have an account?{" "}
-        <span
-          style={{ textDecoration: "underline", cursor: "pointer" }}
-          onClick={props.login}
-        >
-          Login
-        </span>
+        Already have an account?<Link to="login">Login</Link>
       </div>
     </>
   );
