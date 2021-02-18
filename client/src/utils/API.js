@@ -15,7 +15,7 @@ export default {
   },
   // Saves a trades to the database
   saveUser: function (userData) {
-    return axios.post("/api/signup", userData);
+    return axios.post("/api/user", userData);
     
   },
 

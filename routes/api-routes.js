@@ -3,10 +3,11 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/user");
 
-router.post("/api/signup", ({ body }, res) => {
-  console.log("This worked.");
+router.post("/api/user", ({ body }, res) => {
+  
   User.create(body)
     .then((userInfo) => {
+      console.log("User into DB", userInfo);
       res.json(userInfo);
       console.log(body);
     })
@@ -16,9 +17,10 @@ router.post("/api/signup", ({ body }, res) => {
 });
 
 router.post("/api/trades", ({ body }, res) => {
-  console.log("This worked.");
+  
   User.create(body)
     .then((trades) => {
+      console.log("Tade into DB", trades);
       res.json(trades);
       console.log(body);
     })
