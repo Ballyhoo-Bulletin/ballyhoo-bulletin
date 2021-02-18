@@ -14,6 +14,11 @@ export default {
     return axios.delete("/api/trades/" + id);
   },
   // Saves a trades to the database
+  saveUser: function (userData) {
+    return axios.post("/api/signup", userData);
+    
+  },
+
   saveTrade: function (tradeData) {
     return axios.post("/api/trades", tradeData);
   },
