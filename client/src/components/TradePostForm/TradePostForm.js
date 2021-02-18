@@ -19,7 +19,7 @@ const TradePostForm = () => {
     API.saveTrade({
       need: needRef.current.value,
       trade: tradeRef.current.value,
-      Description: descriptionRef.current.value,
+      description: descriptionRef.current.value,
       photo: photoRef.current.value,
     })
       .then((result) => {
@@ -28,13 +28,13 @@ const TradePostForm = () => {
       })
       .catch((err) => console.log(err));
 
-      needRef.current.value = "";
-      descriptionRef.current.value = "";
+    needRef.current.value = "";
+    descriptionRef.current.value = "";
   };
 
   return (
     <div>
-        <Form onSubmit={handleFormSubmit}>
+      <Form onSubmit={handleFormSubmit}>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>What do you want to trade?</Form.Label>
           <Form.Control ref={needRef} type="text" placeholder="" />
@@ -62,9 +62,7 @@ const TradePostForm = () => {
         </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
-            <Button type="submit">
-              Post Trade
-            </Button>
+            <Button type="submit">Post Trade</Button>
           </Col>
         </Form.Group>
       </Form>
