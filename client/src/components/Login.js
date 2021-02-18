@@ -3,6 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
+
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
 export default function Login(props) {
@@ -29,7 +30,7 @@ export default function Login(props) {
   }
 
   return (
-    <div>
+    <div className="justify-content-center">
       <Card ClassName="card">
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
@@ -51,7 +52,7 @@ export default function Login(props) {
         </Card.Body>
       </Card>
 
-      <div className="w-100 text-center-mt-2">
+      <div className="justify-content-center linkMargin">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
