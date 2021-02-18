@@ -1,56 +1,29 @@
 const mongoose = require("mongoose");
-const tradeSchema =  require("./trade");
+
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: { 
-    type: String, 
-    required: true },
-  dob: { 
-    type: Number, 
-    required: true },
   email: {
     type: String,
-    required: true,
-    validate: function (answer) {
-      if (answer.includes(" ")) {
-        return "Please provide a valid email address.";
-      } else {
-        return true;
-      }
-    },
   },
-  trade: {
-    type:[tradeSchema],
-    required: false
-  },
-  password: {
+  city: {
     type: String,
-    required: true,
-    validate: function (answer) {
-      if (answer < 5) {
-        return "Password must be greater than 5 characters.";
-      }
-    },
   },
-  zipcode: { 
-    type: Number, 
-    required: true 
+  need: {
+    type: String,
   },
-  confirm: {
-    type: Boolean,
-    validate: function (answer) {
-      if (answer !== false && dob > 2003) {
-        return true;
-      } else {
-        return "You must be at least 18 years old to create an account.";
-      }
-    },
+  trade: [{
+    type: {
+      type: String},
+  }],
+
+  description: {
+    type: String,
   },
-  date: { 
-    type: Date, 
-    default: Date.now }
-    ,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const User = mongoose.model("User", userSchema);
