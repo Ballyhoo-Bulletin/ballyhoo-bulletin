@@ -15,8 +15,4 @@ router.post("/api/trades", ({ body }, res) => {
     });
 });
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> develop
