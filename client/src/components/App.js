@@ -16,7 +16,7 @@ import "./App.css";
 function App() {
   return (
     <Container
-      className="d-flex align-ites-center justify-content-center"
+      className="align-items-center"
       style={{ minHeight: "100vh" }}
     >
       <div className="w-100" style={{ maxWidth: "400px" }}>
