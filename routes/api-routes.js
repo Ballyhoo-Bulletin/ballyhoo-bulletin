@@ -8,11 +8,15 @@ router.post("/api/trades", ({ body }, res) => {
   User.create(body)
     .then((trades) => {
       res.json(trades);
-      console.log(body)
+      console.log(body);
     })
     .catch((err) => {
       res.json(err);
     });
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+module.exports = router;
+>>>>>>> develop
