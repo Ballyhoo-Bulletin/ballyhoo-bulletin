@@ -22,3 +22,28 @@ const HomeDashboard = () => {
 };
 
 export default HomeDashboard;
+
+{
+  /* <Header />
+    <div className="container">
+  
+      <main className="main">
+        <Container>
+          <div className="container">
+            <div className="row">
+                <div className="col-md-2">
+                  
+                <SideNavbar />
+                </div>
+                <div className="col-md-10">
+        <p>Dashboard</p>
+      </div>
+      <div className="row">
+        <div className="col-md-2">
+          <p>thrumup with icon</p>
+        </div>
+        <div className="col-md-10">
+          <TradeCard />
+        </div>
+      </div> */
+}

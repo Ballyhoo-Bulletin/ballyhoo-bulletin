@@ -20,7 +20,7 @@ export default function Login(props) {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
+      history.push("/auth");
     } catch {
       setError("Login failed!");
     }
