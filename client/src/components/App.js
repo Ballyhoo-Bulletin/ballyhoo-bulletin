@@ -48,7 +48,7 @@ const App = () => {
                   path="/tradepost"
                   component={TradePostFormPage}
                 />
-                <Route path="/auth" component={AuthPage} />
+                {/* <Route path="/auth" component={AuthPage} /> */}
               </Switch>
             </AuthProvider>
           </Container>
