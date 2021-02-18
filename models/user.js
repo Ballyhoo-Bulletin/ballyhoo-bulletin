@@ -3,26 +3,21 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  email: {
-    type: String,
-  },
-  city: {
-    type: String,
+  day: {
+    type: Date,
+    default: Date.now,
   },
   need: {
     type: String,
+    required: "Input need type",
   },
-  trade: [{
-    type: {
-      type: String},
-  }],
-
+  trade: {
+    type: String,
+    required: "Select trade type",
+  },
   description: {
     type: String,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
+    required: "Input description for trade",
   },
 });
 
