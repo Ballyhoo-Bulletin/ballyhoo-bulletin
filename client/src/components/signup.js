@@ -28,7 +28,7 @@ export default function Signup() {
     try {
       setError("");
       setLoading(true);
-      API.saveTrade({
+      API.saveUser({
         email: emailRef.current.value,
         city: cityRef.current.value,
         trade: tradeRef.current.value,
