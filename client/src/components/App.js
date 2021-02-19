@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AuthPage from "../pages/Auth";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "./Dashboard/Profile";
-import Footer from "../components/Footer/Footer";
+// import Footer from "../components/Footer/Footer";
 import Home from "../pages/Home";
 import TradePostFormPage from "../pages/TradePostFormPage";
 import Signup from "./signup";

@@ -13,7 +13,7 @@ export default function Signup(props) {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const zipCodeRef = useRef();
+  const cityRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -62,8 +62,8 @@ export default function Signup(props) {
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
             <Form.Group id="zipCode">
-              <Form.Label>Zip Code</Form.Label>
-              <Form.Control type="zipCode" ref={zipCodeRef} required />
+              <Form.Label>City</Form.Label>
+              <Form.Control type="city" ref={cityRef} required />
             </Form.Group>
             <Form.Group id="skillsSelect">
                <Form.Label>Select Skills</Form.Label>
