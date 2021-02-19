@@ -66,22 +66,20 @@ export default function Signup(props) {
               <Form.Control type="zipCode" ref={zipCodeRef} required />
             </Form.Group>
             <Form.Group controlId="skillsSelect">
-    <Form.Label>Example multiple select</Form.Label>
-    <Form.Control as="select" multiple>
-      <option>Cooking</option>
-      <option>Cleaning</option>
-      <option>Landscaping</option>
-      <option>Auto Mechanics</option>
-      <option>Education/Tutoring</option>
-      <option>Plumbing</option>
-      <option>Childcare</option>
-      <option>Pet Care</option>
-      <option>Other</option>
-      <option>Choose Later</option>
-    </Form.Control>
-
-    
-  </Form.Group>
+               <Form.Label>Select Skills</Form.Label>
+                  <Form.Control as="select" multiple>
+                    <option>Cooking</option>
+                    <option>Cleaning</option>
+                    <option>Landscaping</option>
+                    <option>Auto Mechanics</option>
+                    <option>Education/Tutoring</option>
+                    <option>Plumbing</option>
+                    <option>Childcare</option>
+                    <option>Pet Care</option>
+                    <option>Other</option>
+                    <option>Choose Later</option>
+                </Form.Control>    
+           </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
             </Button>
