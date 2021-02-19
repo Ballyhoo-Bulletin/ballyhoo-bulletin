@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap');
+
+
+h1,
+h3 {
+    font-family: 'Comfortaa', cursive;
+   
+}
+
+.imgJum {
+
+background-image: url("../Jumbotron/imgJum/Nav-logo.png");
+background-size: 200px;
+background-position-x: 100px;
+background-repeat: no-repeat;
+
+
+}
+
+.myText {
+
+font-family: cursive;
+
+}
+
+.jumbotron{
+   
+
+    /* padding:0px; */
+/* padding-top:4rem;
+padding-right:2rem;
+padding-bottom: 2rem;
+padding-left: 2rem; */
+
+
+}
+
