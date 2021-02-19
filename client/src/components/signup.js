@@ -8,7 +8,7 @@ import "./styles/signup.css";
 
 
 export default function Signup(props) {
-  const nameRef = useRef();
+  
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
