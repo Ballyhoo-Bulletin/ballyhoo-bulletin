@@ -1,8 +1,8 @@
-#root{
+body{
 
-background-image: url("./AppImg/background-image1.jpg");
-/* background-repeat: repeat; */
-/* margin-top:20px; */
+background-image: url("./AppImg/Market.jpg");
+background-repeat: repeat;
+ /* margin-top:20px; */
  background-size: cover;
  background-position-y: bottom;
 
@@ -12,7 +12,7 @@ background-image: url("./AppImg/background-image1.jpg");
 .card {
         
 width: 500px;
-margin-left:300px;
+margin-top:200px;
     }
 
     .w-100 {
@@ -26,4 +26,7 @@ margin-left:300px;
         margin-left: 0px;
     }
 
+    .linkMargin {
+        margin-left: 130px;
+    }
   

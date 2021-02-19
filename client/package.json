@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "ballyhoo-bulletin",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "Trade and bartering app",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
