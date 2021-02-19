@@ -1,15 +1,14 @@
 import React, { useState, useRef } from "react";
-import { Form, Row, Col, Button} from "react-bootstrap";
+import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
-import {useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const TradePostForm = () => {
- // need to useState instead of useRef const 
- const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState([]);
+  const [need, setNeed] = useState();
+  const [description, setdescription] = useState();
   
-  const needRef = useRef();
-  const descriptionRef = useRef();
   const photoRef = useRef();
   const history = useHistory();
 
@@ -25,34 +24,37 @@ const TradePostForm = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     API.saveTrade({
-      need: needRef.current.value,
+      need: need,
       trade: options,
-      description: descriptionRef.current.value,
+      description: description,
       photo: photoRef.current.value,
     })
       .then((result) => {
         console.log(result);
-        history.push("/")
+        history.push("/");
       })
       .catch((err) => console.log(err));
-// will change this to useState and useEffect
-      needRef.current.value = "";
-      descriptionRef.current.value = "";
+    
+    setNeed("");
+    setdescription("");
+    
   };
 
   return (
     <div>
-        <Form onSubmit={handleFormSubmit}>
+      <Form onSubmit={handleFormSubmit}>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>What do you want to trade?</Form.Label>
-          <Form.Control ref={needRef} type="text" placeholder="" />
+          <Form.Control value={need} type="text" placeholder="" />
         </Form.Group>
         <Form.Group controlId="TradeGroups2">
           <Form.Label>Trade you for:</Form.Label>
-          <Form.Control  value={options}
-                onChange={handleSelectChange}
-                as="select"
-                multiple>
+          <Form.Control
+            value={options}
+            onChange={handleSelectChange}
+            as="select"
+            multiple
+          >
             <option>Cooking</option>
             <option>Cleaning</option>
             <option>Childcare</option>
@@ -66,16 +68,14 @@ const TradePostForm = () => {
         </Form.Group>
         <Form.Group controlId="description">
           <Form.Label>Description</Form.Label>
-          <Form.Control ref={descriptionRef} as="textarea" rows={3} />
+          <Form.Control value={description} as="textarea" rows={3} />
         </Form.Group>
         <Form.Group>
           <Form.File ref={photoRef} id="UploadPhoto" label="Upload Photo" />
         </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
-            <Button type="submit">
-              Post Trade
-            </Button>
+            <Button type="submit">Post Trade</Button>
           </Col>
         </Form.Group>
       </Form>
