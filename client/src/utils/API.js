@@ -21,6 +21,7 @@ export default {
   },
 
   saveTrade: function (tradeData) {
+    console.log("Trade data entered", tradeData);
     return axios.post("/api/trades", tradeData);
   },
 };
