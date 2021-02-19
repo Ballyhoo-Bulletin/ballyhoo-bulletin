@@ -3,10 +3,13 @@ import { Form, Button, Card, Row, Col, Alert } from "react-bootstrap";
 import API from "../utils/API";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import "./styles/signup.css";
+
+
 
 // can check current user by {currentUser && CurrentUser.email or .whatever}
-
-export default function Signup() {
+export default function Signup(props) {
+  const nameRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -99,7 +102,7 @@ export default function Signup() {
       </Form>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center-mt-2">
+      <div className="justify-content-center linkMargin text-white">
         Already have an account?<Link to="login">Login</Link>
       </div>
     </>
