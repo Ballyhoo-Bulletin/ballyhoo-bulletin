@@ -11,10 +11,16 @@ const userSchema = new Schema({
     type: String,
     required: "Input need type",
   },
-  trade: {
-    type: String,
-    required: "Select trade type",
-  },
+  // trade: {
+  //   type: String,
+  //   required: "Select trade type",
+  // },
+  trade: [
+    {
+      type: String,
+    },
+  ],
+
   description: {
     type: String,
     required: "Input description for trade",
