@@ -9,16 +9,12 @@ const userSchema = new Schema({
   city: {
     type: String,
   },
-  need: {
-    type: String,
-  },
-  trade: [{
-    type: String,
-  }],
-
-  description: {
-    type: String,
-  },
+  trades: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Trade"
+    }
+  ],
   date: {
     type: Date,
     default: Date.now,
