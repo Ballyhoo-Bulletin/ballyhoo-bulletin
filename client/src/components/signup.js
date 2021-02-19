@@ -65,7 +65,7 @@ export default function Signup(props) {
               <Form.Label>Zip Code</Form.Label>
               <Form.Control type="zipCode" ref={zipCodeRef} required />
             </Form.Group>
-            <Form.Group controlId="skillsSelect">
+            <Form.Group id="skillsSelect">
                <Form.Label>Select Skills</Form.Label>
                   <Form.Control as="select" multiple>
                     <option>Cooking</option>
@@ -86,7 +86,7 @@ export default function Signup(props) {
           </Form>
         </Card.Body>
       </Card>
-      <div className="justify-content-center linkMargin">
+      <div className="justify-content-center linkMargin text-white">
         Already have an account?<Link to="login">Login</Link>
       </div>
     </>
