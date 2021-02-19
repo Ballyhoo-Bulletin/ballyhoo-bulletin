@@ -79,6 +79,8 @@ export default function Signup(props) {
       <option>Other</option>
       <option>Choose Later</option>
     </Form.Control>
+
+    
   </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
