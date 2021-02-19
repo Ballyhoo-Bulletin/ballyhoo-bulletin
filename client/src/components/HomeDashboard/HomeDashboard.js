@@ -1,25 +1,27 @@
 import React, { useState, useCallback, useEffect } from "react";
-import API from “../../utils/API”;
-import “./style.css”;
-import TradeCard from “../TradeCard/TradeCard”;
+import API from "../../utils/API";
+import "./style.css";
+
+import TradeCard from "../TradeCard/TradeCard";
+
 const HomeDashboard = () => {
   const { loading, value, error } = useAsync(API.getTrade);
-  if (loading) return “loading...“;
+  if (loading) return "loading...";
   if (error) {
     console.log(error)
     return <div>error</div>;
   }
   console.log(value);
   return (
-    <div className=“container”>
+    <div className="container">
       <div>
         <p>Dashboard</p>
       </div>
-      <div className=“row”>
-        <div className=“col-md-2”>
+      <div className="row">
+        <div className="col-md-2">
           <p>thrumup with icon</p>
         </div>
-        <div className=“col-md-10">
+        <div className="col-md-10">
           <TradeCard />
         </div>
       </div>
@@ -57,5 +59,6 @@ const useAsync = (asyncFunction, immediate = true) => {
       execute();
     }
   }, [execute, immediate]);
+
   return { execute, loading, value, error };
 };
