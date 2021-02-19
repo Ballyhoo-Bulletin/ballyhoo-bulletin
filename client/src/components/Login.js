@@ -52,7 +52,7 @@ export default function Login(props) {
         </Card.Body>
       </Card>
 
-      <div className="justify-content-center linkMargin">
+      <div className="justify-content-center linkMargin text-white">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
