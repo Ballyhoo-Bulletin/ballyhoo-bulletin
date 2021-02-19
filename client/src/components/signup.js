@@ -6,16 +6,13 @@ import { Link, useHistory } from "react-router-dom";
 import "./styles/signup.css";
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
-
 export default function Signup(props) {
   const nameRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState([]);
-
   const passwordConfirmRef = useRef();
-  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const cityRef = useRef();
