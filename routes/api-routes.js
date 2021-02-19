@@ -20,9 +20,11 @@ router.post("/api/user", ({ body }, res) => {
 
 router.post("/api/trades", ({ body }, res) => {
   Trade.create(body)
-  .then(({ _id }) => User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
+  .then(({ _id }) => User.findOneAndUpdate({}, { $push: { trades: _id } }, { new: true }))
+  
   .then(dbUser => {
     res.json(dbUser);
+    console.log("Trade updated", dbUser);
   })
   .catch(err => {
     res.json(err);
