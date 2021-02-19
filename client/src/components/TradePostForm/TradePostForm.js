@@ -2,17 +2,17 @@ import React, { useRef } from "react";
 import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
+import {useHistory } from "react-router-dom";
 
 const TradePostForm = () => {
-  // ref attached to Form.Control, where to call ReactDOM.findDOMNode(ref) ?
+  // need to useState instead of useRef
   const needRef = useRef();
   const descriptionRef = useRef();
   const tradeRef = useRef();
   const photoRef = useRef();
 
-  // state management:
-  // "../utils/GlobalState"
-  // ../../utils/actions
+  const history = useHistory();
+
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -25,6 +25,7 @@ const TradePostForm = () => {
       .then((result) => {
         //global store needs to be setup before doing anything with reducerHook
         console.log(result);
+        history.push("/")
       })
       .catch((err) => console.log(err));
 
@@ -53,7 +54,7 @@ const TradePostForm = () => {
             <option>Other</option>
           </Form.Control>
         </Form.Group>
-        <Form.Group controlId="Description">
+        <Form.Group controlId="description">
           <Form.Label>Description</Form.Label>
           <Form.Control ref={descriptionRef} as="textarea" rows={3} />
         </Form.Group>

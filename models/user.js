@@ -7,23 +7,15 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  need: {
-    type: String,
-    required: "Input need type",
-  },
-  // trade: {
-  //   type: String,
-  //   required: "Select trade type",
-  // },
-  trade: [
+  trades: [
     {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "Trade",
     },
   ],
-
-  description: {
-    type: String,
-    required: "Input description for trade",
+  date: {
+    type: Date,
+    default: Date.now,
   },
 });
 
