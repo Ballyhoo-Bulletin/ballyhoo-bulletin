@@ -8,14 +8,15 @@ import HomeDashboard from "../components/HomeDashboard/HomeDashboard";
 const Home = () => {
   return (
     <div>
+      <SideNavbar />
       <Header />
       <main className="main">
         <Container>
           <div className="container">
             <div className="row">
-              <div className="col-md-2">
+              {/* <div className="col-md-2">
                 <SideNavbar />
-              </div>
+              </div> */}
               <div className="col-md-10">
                 <HomeDashboard />
               </div>

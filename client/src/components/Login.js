@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 // import Home from "../pages/Home";
 
+
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
 export default function Login(props) {
@@ -30,10 +31,10 @@ export default function Login(props) {
   }
 
   return (
-    <div>
+    <div className="justify-content-center">
       <Card ClassName="card">
         <Card.Body>
-          <h2 className="text-center mb-4">login</h2>
+          <h2 className="text-center mb-4">Login</h2>
           {/* {currentUser.email} */}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
@@ -42,24 +43,18 @@ export default function Login(props) {
               <Form.Control type="email" ref={emailRef} required />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label>password</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              login
+              Login
             </Button>
           </Form>
         </Card.Body>
       </Card>
 
-      <div className="w-100 text-center-mt-2">
-        Need an account?{" "}
-        <span
-          onClick={props.signup}
-          style={{ textDecoration: "underline", cursor: "pointer" }}
-        >
-          Sign Up
-        </span>
+      <div className="justify-content-center linkMargin text-white">
+        Need an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
   );
