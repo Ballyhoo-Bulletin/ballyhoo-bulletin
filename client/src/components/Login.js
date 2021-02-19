@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, Component } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+// import Home from "../pages/Home";
 
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
@@ -20,7 +21,7 @@ export default function Login(props) {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/auth");
+      history.push("/home");
     } catch {
       setError("Login failed!");
     }

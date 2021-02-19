@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+// import Home from "../pages/Home";
 
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
@@ -25,8 +26,9 @@ export default function Signup(props) {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
-    } catch {
+      history.push("/home");
+    } catch (err) {
+      console.log(err);
       setError("Sign up failed!");
     }
 
@@ -59,6 +61,7 @@ export default function Signup(props) {
           </Form>
         </Card.Body>
       </Card>
+
       <div className="w-100 text-center-mt-2">
         Already have an account?{" "}
         <span

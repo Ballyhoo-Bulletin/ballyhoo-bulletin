@@ -2,20 +2,14 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from "./Dashboard/Dashboard";
+// import Dashboard from "./Dashboard/Dashboard";
 import AuthPage from "../pages/Auth";
 import PrivateRoute from "./PrivateRoute";
-import Login from "./Login";
-import Signup from "./Signup";
 
 import Footer from "../components/Footer/Footer";
-import Auth from "../pages/Auth";
-
+import Home from "../pages/Home";
 import TradePostFormPage from "../pages/TradePostFormPage";
 import "./App.css";
-// import Home from "../pages/Home";
-import HomeDashboard from "./HomeDashboard/HomeDashboard";
-import SideNavbar from "./Nav/SideNavbar";
 
 // function App() {
 //   return (
@@ -48,13 +42,13 @@ const App = () => {
           <Container>
             <AuthProvider>
               <Switch>
-                <PrivateRoute exact path="/auth" component={AuthPage} />
+                <PrivateRoute exact path="/home" component={Home} />
                 <PrivateRoute
                   exact
                   path="/tradepost"
                   component={TradePostFormPage}
                 />
-                <Route exact path="/auth" component={AuthPage} />
+                <Route path="/" component={AuthPage} />
               </Switch>
             </AuthProvider>
           </Container>

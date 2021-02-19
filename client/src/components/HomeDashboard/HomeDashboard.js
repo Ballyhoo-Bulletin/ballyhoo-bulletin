@@ -9,13 +9,8 @@ const HomeDashboard = () => {
       <div>
         <p>Dashboard</p>
       </div>
-      <div className="row">
-        <div className="col-md-2">
-          <p>thrumup with icon</p>
-        </div>
-        <div className="col-md-10">
-          <TradeCard />
-        </div>
+      <div className="col-md-6">
+        <TradeCard />
       </div>
     </div>
   );

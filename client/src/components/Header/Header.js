@@ -3,9 +3,9 @@ import "./style.css";
 
 function Header() {
   return (
-    <hearder>
+    <header>
       <h1>Ballyhoo-Bulletin</h1>
-    </hearder>
+    </header>
   );
 }
 

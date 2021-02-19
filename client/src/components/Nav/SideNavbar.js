@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 
 function SideNavbar() {
   return (
+    // <div className="container">
+    // <div className="row">
+    //   <div className="col-md-2">
     <div className="sidenav">
       <ul className="nav flex-column">
         <li className="nav-item active">
-          <Link className="nav-link" to="/">
+          <Link className="nav-link" to="/home">
             Dashboard<span className="sr-only">(current)</span>
           </Link>
         </li>
@@ -23,6 +26,9 @@ function SideNavbar() {
         </li>
       </ul>
     </div>
+    //   </div>
+    // </div>
+    // </div>
   );
 }
 
