@@ -42,7 +42,7 @@ export default function Signup(props) {
         city: cityRef.current.value,
         trade: options,
       }).then((result) => {
-        console.log("Success!", result);
+        console.log("Going to API.js", result);
       });
       await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/");
