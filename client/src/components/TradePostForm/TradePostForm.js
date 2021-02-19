@@ -1,34 +1,41 @@
-import React, { useRef } from "react";
-import { Form, Row, Col, Button, Container } from "react-bootstrap";
+import React, { useState, useRef } from "react";
+import { Form, Row, Col, Button} from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 import {useHistory } from "react-router-dom";
 
 const TradePostForm = () => {
-  // need to useState instead of useRef
+ // need to useState instead of useRef const 
+ const [options, setOptions] = useState([]);
+  
   const needRef = useRef();
   const descriptionRef = useRef();
-  const tradeRef = useRef();
   const photoRef = useRef();
-
   const history = useHistory();
 
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
+  function handleSelectChange(e) {
+    e.preventDefault();
+    // setOptions(e.target.value)
+    if (options.includes(e.target.value)) {
+      setOptions(options.filter((x) => x !== e.target.value));
+    } else {
+      setOptions([...options, e.target.value]);
+    }
+  }
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
     API.saveTrade({
       need: needRef.current.value,
-      trade: tradeRef.current.value,
-      Description: descriptionRef.current.value,
+      trade: options,
+      description: descriptionRef.current.value,
       photo: photoRef.current.value,
     })
       .then((result) => {
-        //global store needs to be setup before doing anything with reducerHook
         console.log(result);
         history.push("/")
       })
       .catch((err) => console.log(err));
-
+// will change this to useState and useEffect
       needRef.current.value = "";
       descriptionRef.current.value = "";
   };
@@ -42,7 +49,10 @@ const TradePostForm = () => {
         </Form.Group>
         <Form.Group controlId="TradeGroups2">
           <Form.Label>Trade you for:</Form.Label>
-          <Form.Control ref={tradeRef} as="select" multiple>
+          <Form.Control  value={options}
+                onChange={handleSelectChange}
+                as="select"
+                multiple>
             <option>Cooking</option>
             <option>Cleaning</option>
             <option>Childcare</option>
