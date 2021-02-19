@@ -13,8 +13,7 @@ const userSchema = new Schema({
     type: String,
   },
   trade: [{
-    type: {
-      type: String},
+    type: String,
   }],
 
   description: {
