@@ -6,14 +6,15 @@ import { useHistory } from "react-router-dom";
 
 const TradePostForm = () => {
   const [options, setOptions] = useState([]);
-  const [need, setNeed] = useState();
-  const [description, setdescription] = useState();
-  
+  const [need, setNeed] = useState({});
+  const [description, setDescription] = useState({});
+
   const photoRef = useRef();
   const history = useHistory();
 
   function handleSelectChange(e) {
     e.preventDefault();
+
     // setOptions(e.target.value)
     if (options.includes(e.target.value)) {
       setOptions(options.filter((x) => x !== e.target.value));
@@ -23,21 +24,24 @@ const TradePostForm = () => {
   }
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
     API.saveTrade({
       need: need,
       trade: options,
       description: description,
-      photo: photoRef.current.value,
+      // photo: photoRef.current.value,
     })
       .then((result) => {
         console.log(result);
         history.push("/");
       })
       .catch((err) => console.log(err));
-    
-    setNeed("");
-    setdescription("");
-    
+
+    setNeed(e.target.value);
+    setDescription(e.target.value);
+
+    // setNeed("");
+    // setdescription("");
   };
 
   return (
@@ -45,7 +49,7 @@ const TradePostForm = () => {
       <Form onSubmit={handleFormSubmit}>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>What do you want to trade?</Form.Label>
-          <Form.Control value={need} type="text" placeholder="" />
+          <Form.Control name="name" type="text" placeholder="" />
         </Form.Group>
         <Form.Group controlId="TradeGroups2">
           <Form.Label>Trade you for:</Form.Label>
@@ -68,7 +72,7 @@ const TradePostForm = () => {
         </Form.Group>
         <Form.Group controlId="description">
           <Form.Label>Description</Form.Label>
-          <Form.Control value={description} as="textarea" rows={3} />
+          <Form.Control name="description" description={description} as="textarea" rows={3} />
         </Form.Group>
         <Form.Group>
           <Form.File ref={photoRef} id="UploadPhoto" label="Upload Photo" />
