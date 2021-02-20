@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Dashboard from "./Dashboard/Dashboard";
-import AuthPage from "../pages/Auth";
+// import AuthPage from "../pages/Auth";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "./Dashboard/Profile";
 import Home from "../pages/Home";
@@ -35,35 +34,9 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-    </Container>
+    // </Container>
   );
 }
 
 export default App;
 
-// const App = () => {
-//   return (
-//     <Router>
-//       <div className="application">
-//         <main className="main">
-//           <Container>
-//             <AuthProvider>
-//               <Switch>
-//                 <PrivateRoute exact path="/" component={Home} />
-//                 <PrivateRoute
-//                   exact
-//                   path="/tradepost"
-//                   component={TradePostFormPage}
-//                 />
-//                 {/* <Route path="/auth" component={AuthPage} /> */}
-//               </Switch>
-//             </AuthProvider>
-//           </Container>
-//           <Footer />
-//         </main>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// export default App;

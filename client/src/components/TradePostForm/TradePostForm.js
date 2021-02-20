@@ -37,11 +37,11 @@ const TradePostForm = () => {
     <div className="container" >
         <Form onSubmit={handleFormSubmit} className="justify-content-center">
         <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label>What do you want to trade?</Form.Label>
+          <Form.Label className="text-white">What do you want to trade?</Form.Label>
           <Form.Control ref={needRef} type="text" placeholder="" />
         </Form.Group>
         <Form.Group controlId="TradeGroups2">
-          <Form.Label>Trade you for:</Form.Label>
+          <Form.Label className="text-white">Trade you for:</Form.Label>
           <Form.Control ref={tradeRef} as="select" multiple>
             <option>Cooking</option>
             <option>Cleaning</option>
@@ -55,10 +55,10 @@ const TradePostForm = () => {
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="description">
-          <Form.Label>Description</Form.Label>
+          <Form.Label className="text-white">Description</Form.Label>
           <Form.Control ref={descriptionRef} as="textarea" rows={3} />
         </Form.Group>
-        <Form.Group>
+        <Form.Group className="text-white">
           <Form.File ref={photoRef} id="UploadPhoto" label="Upload Photo" />
         </Form.Group>
         <Form.Group as={Row}>
