@@ -60,7 +60,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * Kelsea Fields - github username: kfields91
 * April Yang - github username: aprilyanggarwood
 
-Project Link: 
+Project Link: https://github.com/Ballyhoo-Bulletin/ballyhoo-bulletin
 
 ## Acknowledgements 
 * Instructors: Shout out to our Bootcamp instructor, John Young, and all of the amazing TA's for helping pave the path to a brighter future.
