@@ -61,3 +61,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 * April Yang - github username: 
 
 Project Link: 
+
+## Acknowledgements 
+* Instructors: Shout out to our Bootcamp instructor, John Young, and all of the amazing TA's for helping pave the path to a brighter future.
