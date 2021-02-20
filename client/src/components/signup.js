@@ -7,7 +7,7 @@ import "./styles/signup.css";
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
 export default function Signup(props) {
-  const nameRef = useRef();
+  
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
