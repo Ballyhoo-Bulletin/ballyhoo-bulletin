@@ -1,0 +1,16 @@
+.container {
+    /* background-color: salmon;
+    /* margin-top: 80px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left: 100px; */
+    /* justify-content: center; */
+    position: center;
+  margin-top: 50px;
+    background: salmon;
+    height: 100%;
+    /* width: 100%; */
+    /* z-index:9999999; */
+
+
+}

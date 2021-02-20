@@ -4,6 +4,7 @@ import "./style.css";
 
 import TradeCard from "../TradeCard/TradeCard";
 
+
 const HomeDashboard = () => {
   const { loading, value, error } = useAsync(API.getTrade);
   if (loading) return "loading...";
@@ -13,13 +14,13 @@ const HomeDashboard = () => {
   }
   console.log(value);
   return (
-    <div className="container">
-      <div>
-        <p>Dashboard</p>
-      </div>
+    <div  className="container">
+    //   <div>
+    
+      // </div>
       <div className="row">
         <div className="col-md-2">
-          <p>thrumup with icon</p>
+        
         </div>
         <div className="col-md-10">
           <TradeCard />

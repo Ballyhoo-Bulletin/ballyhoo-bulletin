@@ -34,8 +34,8 @@ const TradePostForm = () => {
   };
 
   return (
-    <div>
-        <Form onSubmit={handleFormSubmit}>
+    <div className="container" >
+        <Form onSubmit={handleFormSubmit} className="justify-content-center">
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>What do you want to trade?</Form.Label>
           <Form.Control ref={needRef} type="text" placeholder="" />

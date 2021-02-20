@@ -9,7 +9,7 @@ const styles = {
     width: "0",
     position: "fixed",
     zIndex: "1",
-    top: "0",
+    top: "10",
     left: "0",
     backgroundColor: "#111",
     // paddingTop: "20%",
@@ -18,7 +18,7 @@ const styles = {
     padding: "8px 8px 8px 32px",
     textDecoration: "none",
     fontSize: "20px",
-    color: "#818181",
+    color: "white",
     display: "block",
   },
 };
