@@ -3,13 +3,12 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
-
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
 export default function Login(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const { currentUser, login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -20,7 +19,11 @@ export default function Login(props) {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      const CFUser = login(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      console.log("I''m a uid" + CFUser.user.uid);
       history.push("/");
     } catch {
       setError("Login failed!");
@@ -34,7 +37,7 @@ export default function Login(props) {
       <Card ClassName="card">
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
-          {/* {currentUser.email} */}
+          {currentUser && currentUser.email}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
