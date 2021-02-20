@@ -19,7 +19,11 @@ export default function Login(props) {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      const CFUser = login(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      console.log("I''m a uid" + CFUser.user.uid);
       history.push("/");
     } catch {
       setError("Login failed!");
