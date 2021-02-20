@@ -6,15 +6,15 @@ Ballyhoo Bulletin is the place to go to trade goods and services. If you are gre
 
 ## Table of Contents
 
-* About the Project
-* Built With
-* Getting Started
-* Installation
-* Usage
-* Contributing
-* License
-* Contact
-* Acknowledgements
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Getting Started](#getting-started)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
 
 ## About the Project
 <br>
@@ -31,7 +31,7 @@ Ballywho Bulletin is an app that allows a user to post goods and services for tr
 ## Getting Started
 <br>
 Clone the repo: 
-git clone [repo here]
+git clone git@github.com:Ballyhoo-Bulletin/ballyhoo-bulletin.git
 npm i to install dependencies
 
 ## Usage
@@ -55,10 +55,10 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Contact
-* Amber Lee - github username: 
+* Amber Lee - github username: lee-amber-alex
 * Nadine Delaire - github username: ndelaire 
-* Kelsea Fields - github username: 
-* April Yang - github username: 
+* Kelsea Fields - github username: kfields91
+* April Yang - github username: aprilyanggarwood
 
 Project Link: 
 
