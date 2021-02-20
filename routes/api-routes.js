@@ -1,13 +1,39 @@
 const router = require("express").Router();
-// const db = require("../models");
 const mongoose = require("mongoose");
 const User = require("../models/user");
 const Trade = require("../models/trade");
 
+router.get("/api/trades", (req, res) => {
+  Trade.find({})
+    .then((dbTrade) => {
+      res.json(dbTrade);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
+// router.get("/api/trades/", (req, res) => {
+//   Trade.find({})
+//     .then((dbTrade) => {
+//       res.json(dbTrade);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// })
+
+router.get("/api/user/", (req, res) => {
+  User.find({})
+    .then((dbUser) => {
+      res.json(dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 router.post("/api/user", ({ body }, res) => {
-
   User.create(body)
     .then((userInfo) => {
       res.json(userInfo);
@@ -19,34 +45,19 @@ router.post("/api/user", ({ body }, res) => {
 });
 
 router.post("/api/trades", ({ body }, res) => {
+  console.log(body);
   Trade.create(body)
-  .then(({ _id }) => User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-  .then(dbUser => {
-    res.json(dbUser);
-  })
-  .catch(err => {
-    res.json(err);
-  });
+    .then(({ _id }) =>
+      User.findOneAndUpdate({}, { $push: { trades: _id } }, { new: true })
+    )
+    .then((dbUser) => {
+      res.json(dbUser);
+      console.log("Trade updated", dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+    console.log("Successfully into db.")
 });
-
-
-// week 17 act 15
-// trade.create 
-// user
-// router.post("/api/trades", ({ body }, res) => {
-//   console.log("This worked.");
-//   User.create({
-//   "need": req.body.needRef,
-//   "trade": req.body.tradeRef,
-//   "description": req.body.descriptionRef
-//  })
-//     .then((trades) => {
-//       res.json(trades);
-//       console.log(trades);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
 
 module.exports = router;
