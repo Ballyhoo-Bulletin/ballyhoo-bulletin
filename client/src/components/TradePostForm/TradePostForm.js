@@ -8,6 +8,7 @@ const TradePostForm = () => {
   const [options, setOptions] = useState([]);
   const [need, setNeed] = useState({});
   const [description, setDescription] = useState({});
+
   const photoRef = useRef();
   const history = useHistory();
 
@@ -47,7 +48,7 @@ const TradePostForm = () => {
           <Form.Control
             name="need"
             onChange={(e) =>
-              setNeed({ ...need, need: e.target.value })
+              setNeed(e.target.value )
             }
             type="text"
             placeholder=""
@@ -77,7 +78,7 @@ const TradePostForm = () => {
           <Form.Control
             name="description"
             onChange={(e) =>
-              setDescription({ ...description, description: e.target.value })
+              setDescription(e.target.value )
             }
             as="textarea"
             rows={3}
