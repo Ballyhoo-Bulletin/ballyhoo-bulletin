@@ -4,48 +4,58 @@ import API from "../utils/API";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import "./styles/signup.css";
-
 // can check current user by {currentUser && CurrentUser.email or .whatever}
+
 export default function Signup(props) {
   const nameRef = useRef();
-  const { signup } = useAuth();
+  const { signup, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const history = useHistory();
+  const [options, setOptions] = useState([]);
+  const passwordConfirmRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
   const cityRef = useRef();
-  const tradeRef = useRef();
+  const history = useHistory();
+
+  function handleSelectChange(e) {
+    e.preventDefault();
+    // setOptions(e.target.value)
+    if (options.includes(e.target.value)) {
+      setOptions(options.filter((x) => x !== e.target.value));
+    } else {
+      setOptions([...options, e.target.value]);
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       return setError("Passwords do not match!");
     }
-
     try {
       setError("");
       setLoading(true);
+      const user = await signup(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      console.log(user.user.uid);
       API.saveUser({
+        userID: user.user.uid,
         email: emailRef.current.value,
         city: cityRef.current.value,
-        trade: tradeRef.current.value,
+        trade: options,
       }).then((result) => {
-        console.log("Success!", result);
+        console.log("Going to API.js", result);
       });
-      await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/home");
-      console.log("login");
+      history.push("/");
     } catch {
       setError("Sign up failed!");
     }
 
     setLoading(false);
   }
-
   return (
     <>
       <Card>
@@ -54,45 +64,49 @@ export default function Signup(props) {
           {/* {currentUser.email} */}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
+            <Form.Group id="name">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="name" ref={nameRef} required />
+            </Form.Group>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" ref={emailRef} required />{" "}
-            </Form.Group>{" "}
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
             <Form.Group id="password">
-              <Form.Label>password</Form.Label>
-              <Form.Control type="password" ref={passwordRef} required />{" "}
-            </Form.Group>{" "}
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
             <Form.Group id="password-confirm">
               <Form.Label>Password Confirmation</Form.Label>
-              <Form.Control
-                type="password"
-                ref={passwordConfirmRef}
-                required
-              />{" "}
+              <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
-            <Form.Group id="city">
+            <Form.Group id="zipCode">
               <Form.Label>City</Form.Label>
-              <Form.Control type="text" ref={cityRef} required />{" "}
-            </Form.Group>{" "}
-            <Form.Group controlId="TradeGroups2">
-              <Form.Label>Select Your Trade Skills:</Form.Label>
-              <Form.Control ref={tradeRef} as="select" multiple>
+              <Form.Control type="text" ref={cityRef} required />
+            </Form.Group>
+            <Form.Group id="skillsSelect">
+              <Form.Label>Select Skills</Form.Label>
+              <Form.Control
+                value={options}
+                onChange={handleSelectChange}
+                as="select"
+                multiple
+              >
                 <option>Cooking</option>
                 <option>Cleaning</option>
-                <option>Childcare</option>
-                <option>Education</option>
                 <option>Landscaping</option>
-                <option>Mechanical</option>
-                <option>Petcare</option>
-                <option>Technical</option>
-                <option>I will later</option>
+                <option>Auto Mechanics</option>
+                <option>Education/Tutoring</option>
+                <option>Plumbing</option>
+                <option>Childcare</option>
+                <option>Pet Care</option>
+                <option>Other</option>
+                <option>Choose Later</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group as={Row}>
-              <Col sm={{ span: 10, offset: 2 }}>
-                <Button type="submit">Create Account</Button>
-              </Col>
-            </Form.Group>
+            <Button disabled={loading} className="w-100" type="submit">
+              Sign Up
+            </Button>
           </Form>
         </Card.Body>
       </Card>

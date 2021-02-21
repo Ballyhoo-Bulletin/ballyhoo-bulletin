@@ -1,6 +1,7 @@
 module.exports = {
     User: require("./user"),
-    imageSchema: require("./Image"),
+    Trade: require("./trade"),
+    // imageSchema: require("./Image"),
     
     
   };
