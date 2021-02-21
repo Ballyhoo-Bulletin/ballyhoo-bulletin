@@ -1,5 +1,7 @@
 import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
+import { useAuth } from "../../contexts/AuthContext";
+import "./style.css";
 
 const styles = {
   text: {
@@ -7,17 +9,20 @@ const styles = {
   },
 };
 
+
 export default function TradeCard(props) {
+  const { currentUser } = useAuth();
+  console.log(props);
   return (
     <div>
-      <Card style={{ width: "25rem" }}>
+      <Card style={{ width: "25rem", margin: "20px" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body style={styles.text}>
-          <Card.Title>{props.email}</Card.Title>
+          <Card.Title>User:{}</Card.Title>
           <ListGroup variant="flush">
             <ListGroup.Item>I need: {props.need}</ListGroup.Item>
             <ListGroup.Item>
-              And can trade you for: {props.children}
+              And can trade you for: {props.trades}
             </ListGroup.Item>
           </ListGroup>
           <Card.Text>
