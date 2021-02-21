@@ -8,37 +8,13 @@ const HomeDashboard = () => {
   const { loading, value, error } = useAsync(API.getTrade);
   if (loading) return "loading...";
   if (error) {
-    console.log(error)
+    console.log(error);
     return <div>error</div>;
   }
   console.log(value);
   return (
     <div className="container">
       <div>
-        <p>Dashboard</p>
-      </div>
-      <div className="col-md-6">
-        <TradeCard />
-      </div>
-    </div>
-  );
-};
-
-export default HomeDashboard;
-
-{
-  /* <Header />
-    <div className="container">
-  
-      <main className="main">
-        <Container>
-          <div className="container">
-            <div className="row">
-                <div className="col-md-2">
-                  
-                <SideNavbar />
-                </div>
-                <div className="col-md-10">
         <p>Dashboard</p>
       </div>
       <div className="row">
@@ -48,10 +24,6 @@ export default HomeDashboard;
         <div className="col-md-10">
           <TradeCard />
         </div>
-<<<<<<< HEAD
-      </div> */
-}
-=======
       </div>
     </div>
   );
@@ -95,4 +67,3 @@ const useAsync = (asyncFunction, immediate = true) => {
 
   return { execute, loading, value, error };
 };
->>>>>>> develop

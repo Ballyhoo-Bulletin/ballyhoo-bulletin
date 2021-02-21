@@ -13,7 +13,7 @@ const TradePostForm = () => {
 
   const photoRef = useRef();
   const history = useHistory();
-  
+
   function handleSelectChange(e) {
     e.preventDefault();
 
@@ -85,7 +85,16 @@ const TradePostForm = () => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.File ref={photoRef} id="UploadPhoto" label="Upload Photo" />
+          <Form.File
+            ref={photoRef}
+            id="UploadPhoto"
+            label="Upload Photo"
+            action="/api/images"
+            method="post"
+            type="file"
+            name="image"
+            // enctype="multipart/form-data"
+          />
         </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>

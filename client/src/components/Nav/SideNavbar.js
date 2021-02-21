@@ -27,7 +27,7 @@ export default function SideNavbar() {
   const { logout } = useAuth();
   return (
     <div style={styles.sidenav}>
-      <Link className="nav-link" style={styles.a} to="/home">
+      <Link className="nav-link" style={styles.a} to="/">
         {" "}
         Dashboard <span className="sr-only">(current)</span>
       </Link>

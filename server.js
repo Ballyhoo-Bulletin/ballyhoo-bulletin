@@ -31,3 +31,11 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
+
+// app
+//   .get("/server", (req, res) => {
+//     res.send("Server seems to be working");
+//   })
+//   .listen(PORT, () => {
+//     console.log(`Server is running on ${PORT}`);
+//   });
