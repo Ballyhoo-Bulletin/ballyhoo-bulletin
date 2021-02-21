@@ -8,7 +8,7 @@ import "./styles/signup.css";
 
 export default function Signup(props) {
   const nameRef = useRef();
-  const { signup } = useAuth();
+  const { signup, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState([]);
@@ -36,14 +36,19 @@ export default function Signup(props) {
     try {
       setError("");
       setLoading(true);
+      const user = await signup(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      console.log(user.user.uid);
       API.saveUser({
+        userID: user.user.uid,
         email: emailRef.current.value,
         city: cityRef.current.value,
         trade: options,
       }).then((result) => {
         console.log("Going to API.js", result);
       });
-      await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/");
     } catch {
       setError("Sign up failed!");
