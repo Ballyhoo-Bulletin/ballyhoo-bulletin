@@ -19,8 +19,13 @@ export default function Login(props) {
     try {
       setError("");
       setLoading(true);
+<<<<<<< HEAD
       const CFUser = login(emailRef.current.value, passwordRef.current.value);
       console.log("I''m a uid" + CFUser.user.uid);
+=======
+      await login(emailRef.current.value, passwordRef.current.value);
+      // console.log("I''m a uid" + CFUser.user.uid);
+>>>>>>> develop
       history.push("/");
     } catch {
       setError("Login failed!");
@@ -34,7 +39,8 @@ export default function Login(props) {
       <Card ClassName="card">
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
-          {currentUser && currentUser.email}
+          {/* {currentUser && currentUser.email} */}
+
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
