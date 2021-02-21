@@ -27,7 +27,7 @@ export default function TradeCard(props) {
             Additional info:
             {props.description}
           </Card.Text>
-          <Button variant="primary">Claim</Button>
+          <Button {...props} variant="primary">Claim</Button>
         </Card.Body>
       </Card>
     </div>

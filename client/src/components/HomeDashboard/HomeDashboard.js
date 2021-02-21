@@ -11,23 +11,40 @@ const HomeDashboard = () => {
     return <div>error</div>;
   }
   if (value) {
-  const dbData = value.data;
-  console.log(dbData);
+    const dbData = value.data;
+    console.log(dbData);
 
-  return <div>
-    {dbData.map(data => (
-    <TradeCard dbData={dbData} 
-    // image would go here once available
-    id={data.id}
-    key={data.id}
-    // email={dbData.email}
-    need={data.need}
-    trades={data.trades}
-    description={data.description}
-    />
-    ))}
-  </div>
-  // dbData only available here in this bracket
+    function handleSubmit(e) {
+      e.preventDefault();
+      console.log("Trade Claimed");
+      alert("You have claimed this trade!");
+      // API.claimTrade({
+      //  
+      // })
+      //   .then((res) => )
+      //   .catch((err) => console.log(err));
+    }
+
+    return (
+      <div>
+        {dbData.map((data) => (
+          <TradeCard
+            dbData={dbData}
+            // image would go here once available
+            id={data.id}
+            key={data.id}
+            // email={dbData.email}
+            need={data.need}
+            trades={data.trades}
+            description={data.description}
+            onClick={handleSubmit}
+            
+          />
+          
+        ))}
+      </div>
+    );
+    // dbData only available here in this bracket
   }
   // Thi values is showing up null && as data
   console.log(value);
@@ -44,8 +61,8 @@ const HomeDashboard = () => {
         </div>
         <div className="col-md-10">
           {/* {dbData.map((item) => ( */}
-            {/* <TradeCard /> */}
-              {/* // item={value}
+          {/* <TradeCard /> */}
+          {/* // item={value}
               // // image would go here
               email={dbData.email}
               // id={value.data.id}
@@ -69,10 +86,6 @@ const useAsync = (asyncFunction, immediate = true) => {
   const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
 
-  // The execute function wraps asyncFunction and
-  // handles setting state for pending, value, and error.
-  // useCallback ensures the below useEffect is not called
-  // on every render, but only if asyncFunction changes.
   const execute = useCallback(() => {
     setLoading(true);
     setValue(null);
@@ -89,9 +102,6 @@ const useAsync = (asyncFunction, immediate = true) => {
       });
   }, [asyncFunction]);
 
-  // Call execute if we want to fire it right away.
-  // Otherwise execute can be called later, such as
-  // in an onClick handler.
   useEffect(() => {
     if (immediate) {
       execute();
