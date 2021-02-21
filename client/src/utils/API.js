@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
   
-
   getTrade: function () {
     return axios.get("/api/trades");
   },

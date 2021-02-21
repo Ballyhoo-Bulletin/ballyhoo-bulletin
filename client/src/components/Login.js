@@ -8,7 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 export default function Login(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { currentUser, login } = useAuth();
+  const { login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -20,7 +20,6 @@ export default function Login(props) {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      // console.log("I''m a uid" + CFUser.user.uid);
       history.push("/");
     } catch {
       setError("Login failed!");
@@ -34,8 +33,6 @@ export default function Login(props) {
       <Card ClassName="card">
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
-          {/* {currentUser && currentUser.email} */}
-
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
