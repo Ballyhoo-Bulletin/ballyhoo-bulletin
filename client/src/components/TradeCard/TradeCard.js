@@ -1,14 +1,12 @@
 import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
-import "./style.css";
 
 const styles = {
   text: {
     textAlign: "center",
   },
 };
-
 
 export default function TradeCard(props) {
   const { currentUser } = useAuth();
