@@ -8,7 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 export default function Login(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const { currentUser, login } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -35,6 +35,7 @@ export default function Login(props) {
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
           {/* {currentUser && currentUser.email} */}
+
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
