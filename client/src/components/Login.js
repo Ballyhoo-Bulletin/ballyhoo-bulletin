@@ -4,7 +4,6 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 // import Home from "../pages/Home";
 
-
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
 export default function Login(props) {
@@ -23,6 +22,7 @@ export default function Login(props) {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       history.push("/home");
+      console.log("login");
     } catch {
       setError("Login failed!");
     }

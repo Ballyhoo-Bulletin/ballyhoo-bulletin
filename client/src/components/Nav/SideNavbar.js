@@ -26,31 +26,8 @@ const styles = {
 export default function SideNavbar() {
   const { logout } = useAuth();
   return (
-<<<<<<< HEAD
-    // <div className="container">
-    // <div className="row">
-    //   <div className="col-md-2">
-    <div className="sidenav">
-      <ul className="nav flex-column">
-        <li className="nav-item active">
-          <Link className="nav-link" to="/home">
-            Dashboard<span className="sr-only">(current)</span>
-          </Link>
-        </li>
-        <li className="nav-item active">
-          <Link className="nav-link" to="/tradepost">
-            Trade Post
-          </Link>
-        </li>
-        <li className="nav-item active">
-          <Link className="nav-link" to="/auth">
-            Logout
-          </Link>
-        </li>
-      </ul>
-=======
     <div style={styles.sidenav}>
-      <Link className="nav-link" style={styles.a} to="/">
+      <Link className="nav-link" style={styles.a} to="/home">
         {" "}
         Dashboard <span className="sr-only">(current)</span>
       </Link>
@@ -64,7 +41,6 @@ export default function SideNavbar() {
       <Link className="nav-link" style={styles.a} to="/login">
         {logout}Logout
       </Link>
->>>>>>> develop
     </div>
     //   </div>
     // </div>

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-<<<<<<< HEAD
   // Gets all posts
+
   getTrade: function () {
     return axios.get("/api/post");
   },
@@ -22,8 +22,8 @@ export default {
   likeDislike: function (id, action) {
     return axios.put("/api/posts/" + id, { action });
   },
-=======
   // Gets all trades
+
   getTrade: function () {
     return axios.get("/api/trades");
   },
@@ -38,11 +38,9 @@ export default {
   // Saves a trades to the database
   saveUser: function (userData) {
     return axios.post("/api/user", userData);
-    
   },
 
   saveTrade: function (tradeData) {
     return axios.post("/api/trades", tradeData);
   },
->>>>>>> develop
 };

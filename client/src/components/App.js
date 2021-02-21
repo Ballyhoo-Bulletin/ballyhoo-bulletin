@@ -15,35 +15,12 @@ import "./App.css";
 
 function App() {
   return (
-<<<<<<< HEAD
-    <Router>
-      <div className="application">
-        <main className="main">
-          <Container>
-            <AuthProvider>
-              <Switch>
-                <PrivateRoute exact path="/home" component={Home} />
-                <PrivateRoute
-                  exact
-                  path="/tradepost"
-                  component={TradePostFormPage}
-                />
-                <Route path="/" component={AuthPage} />
-              </Switch>
-            </AuthProvider>
-          </Container>
-          <Footer />
-        </main>
-=======
-    <Container
-      className="align-items-center"
-      style={{ minHeight: "100vh" }}
-    >
+    <Container className="align-items-center" style={{ minHeight: "100vh" }}>
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
           <AuthProvider>
             <Switch>
-              <PrivateRoute exact path="/" component={Home} />
+              <PrivateRoute exact path="/home" component={Home} />
               <PrivateRoute exact path="/profile" component={Profile} />
               <PrivateRoute
                 exact
@@ -52,10 +29,10 @@ function App() {
               />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
+              <Route exact path="/" component={Login} />
             </Switch>
           </AuthProvider>
         </Router>
->>>>>>> develop
       </div>
     </Container>
   );
