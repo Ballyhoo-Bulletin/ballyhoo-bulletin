@@ -42,7 +42,7 @@ const TradePostForm = () => {
     API.saveTrade({
       userID: currentUser.uid,
       need: need,
-      trades: options,
+      currency: options,
       description: description,
       // photo: photoRef.current.value,
     })
