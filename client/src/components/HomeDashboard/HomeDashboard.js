@@ -38,7 +38,7 @@ const HomeDashboard = () => {
             key={data.id}
             // email={dbData.email}
             need={data.need}
-            trades={data.trades}
+            currency={data.currency}
             description={data.description}
             onClick={handleSubmit}
             
