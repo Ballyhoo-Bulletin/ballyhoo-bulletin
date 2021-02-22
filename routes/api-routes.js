@@ -4,7 +4,7 @@ const User = require("../models/user");
 const Trade = require("../models/trade");
 
 router.get("/api/trades/", (req, res) => {
-  Trade.find({})
+  Trade.find({}).sort({ date: -1 })
     .then((dbTrade) => {
       res.json(dbTrade);
     })
