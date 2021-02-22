@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, Component } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import API from "../../utils/API";
 import "./style.css";
 import TradeCard from "../TradeCard/TradeCard";
@@ -14,15 +14,18 @@ const HomeDashboard = () => {
     const dbData = value.data;
     console.log(dbData);
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      console.log("Trade Claimed");
+    function handleSubmit() {
+      // console.log(data);
+    //   console.log("Trade Claimed");
+    //   API.claimTrade({
+    //   dbData:dbData
+    //   })
+    // .then((result) => {
+    //     console.log("Claims data", result);
+    //   })
+    //   .catch((err) => console.log(err));
       alert("You have claimed this trade!");
-      // API.claimTrade({
-      //  
-      // })
-      //   .then((res) => )
-      //   .catch((err) => console.log(err));
+      
     }
 
     return (
