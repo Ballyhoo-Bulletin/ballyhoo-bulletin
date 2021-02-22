@@ -9,10 +9,12 @@ const tradeSchema = new Schema({
   email: {
     type: String,
   },
+  // what you want to obtain, "need"
   need: {
     type: String,
   },
-  trades: [{
+  // the "trade you for..."
+  currency: [{
     type: String,
   }],
 
