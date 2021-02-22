@@ -13,6 +13,22 @@ router.get("/api/trades/", (req, res) => {
     });
 });
 
+router.post("/api/claims", ({ body }, res) => {
+  User.findOneAndUpdate(
+    { userID: body.userID },
+    { $push: { claimed: _id } },
+    { new: true }
+  )
+    .then((dbUser) => {
+      res.json(dbUser);
+      console.log("Claim updated", dbUser);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+  console.log("Successfully into db.");
+});
+
 // router.get("/api/trades/", (req, res) => {
 //   Trade.find({})
 //     .then((dbTrade) => {
@@ -23,11 +39,21 @@ router.get("/api/trades/", (req, res) => {
 //     });
 // })
 
+// router.get("/api/user/", (req, res) => {
+//   User.find({ city })
+//     .then((userCity) => {
+//       res.json(userCity);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
-router.get("/api/user/", (req, res) => {
-  User.find({ city })
-    .then(({ _id }) => {
-      res.json(dbUser);
+router.get("/api/user", (req, res) => {
+  User.findById(req.params.id)
+    .then((userEmail) => {
+      res.json(userEmail);
+      console.log("Found userEmail", userEmail);
     })
     .catch((err) => {
       res.json(err);
@@ -44,6 +70,26 @@ router.post("/api/user", ({ body }, res) => {
       res.json(err);
     });
 });
+// router.post("/api/trades", ({ body }, res) => {
+//   console.log(body);
+//   Trade.create(body)
+//     .then(({ _id }) =>
+//       User.findOneAndUpdate(
+//         { userID: body.userID },
+//         { $push: { trades: _id } },
+//         { new: true }
+//       )
+//     )
+//     .then((dbUser) => {
+//       res.json(dbUser);
+//       console.log("Trade updated", dbUser);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+//   console.log("Successfully into db.");
+// });
+
 router.post("/api/trades", ({ body }, res) => {
   console.log(body);
   Trade.create(body)
@@ -54,6 +100,9 @@ router.post("/api/trades", ({ body }, res) => {
         { new: true }
       )
     )
+    .then(({ _id }) =>
+      Trade.findOneAndUpdate({ $push: { userID: userID } }, { new: true })
+    )
     .then((dbUser) => {
       res.json(dbUser);
       console.log("Trade updated", dbUser);
@@ -61,7 +110,7 @@ router.post("/api/trades", ({ body }, res) => {
     .catch((err) => {
       res.json(err);
     });
-    console.log("Successfully into db.")
+  console.log("Successfully into db.");
 });
 // router.post(“/api/trades/:id”, ({ body, params }, res) => {
 //   console.log(req.params.id);
@@ -104,7 +153,6 @@ module.exports = router;
 //       res.json(err);
 //     });
 // });
-
 
 // // router.get("/api/trades/", (req, res) => {
 // //   Trade.find({})
