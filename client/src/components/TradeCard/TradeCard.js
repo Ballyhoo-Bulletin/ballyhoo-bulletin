@@ -10,13 +10,13 @@ const styles = {
 
 export default function TradeCard(props) {
   const { currentUser } = useAuth();
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       <Card style={{ width: "25rem", margin: "20px" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body style={styles.text}>
-          <Card.Title>User:{}</Card.Title>
+          <Card.Title>User:{props.email}</Card.Title>
           <ListGroup variant="flush">
             <ListGroup.Item>I need: {props.need}</ListGroup.Item>
             <ListGroup.Item>
