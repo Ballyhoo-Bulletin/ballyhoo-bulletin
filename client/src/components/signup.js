@@ -5,13 +5,14 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import "./styles/signup.css";
 // can check current user by {currentUser && CurrentUser.email or .whatever}
+
 export default function Signup(props) {
-  const { signup } = useAuth();
+  const nameRef = useRef();
+  const { signup, currentUser } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState([]);
   const passwordConfirmRef = useRef();
-  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const cityRef = useRef();
@@ -33,14 +34,19 @@ export default function Signup(props) {
     try {
       setError("");
       setLoading(true);
+      const user = await signup(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      console.log(user.user.uid);
       API.saveUser({
+        userID: user.user.uid,
         email: emailRef.current.value,
         city: cityRef.current.value,
         trade: options,
       }).then((result) => {
         console.log("Going to API.js", result);
       });
-      await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/");
     } catch {
       setError("Sign up failed!");

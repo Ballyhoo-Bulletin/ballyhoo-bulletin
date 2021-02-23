@@ -3,7 +3,6 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 
-
 // can check current user by {currentUser && CurrentUser.email or .whatever}
 
 export default function Login(props) {
@@ -34,7 +33,6 @@ export default function Login(props) {
       <Card ClassName="card">
         <Card.Body>
           <h2 className="text-center mb-4">Login</h2>
-          {/* {currentUser.email} */}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">

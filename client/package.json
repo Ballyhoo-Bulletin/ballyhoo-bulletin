@@ -1,6 +1,9 @@
 {
   "name": "ballyhoo-bulletin",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.x"
+  },
   "description": "Trade and bartering app",
   "private": true,
   "proxy": "http://localhost:3001/",

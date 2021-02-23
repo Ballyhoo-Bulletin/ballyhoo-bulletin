@@ -1,17 +1,39 @@
-import React, { useState, useCallback, useEffect } from "react";
+
+import React, { useState, useCallback, useEffect, Component } from "react";
 import API from "../../utils/API";
 import "./style.css";
-
 import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {
   const { loading, value, error } = useAsync(API.getTrade);
   if (loading) return "loading...";
   if (error) {
-    console.log(error)
-    return <div></div>;
+    console.log(error);
+    return <div>error</div>;
   }
+  if (value) {
+  const dbData = value.data;
+  console.log(dbData);
+
+  return <div>
+    {dbData.map(data => (
+    <TradeCard dbData={dbData} 
+    // image would go here once available
+    id={data.id}
+    key={data.id}
+    // email={dbData.email}
+    need={data.need}
+    trades={data.trades}
+    description={data.description}
+    />
+    ))}
+  </div>
+  // dbData only available here in this bracket
+  }
+  // Thi values is showing up null && as data
   console.log(value);
+
+  // console.log("database DATA maybe?", dbData);
   return (
     <div className="container">
       <div>

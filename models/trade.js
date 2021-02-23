@@ -6,7 +6,7 @@ const tradeSchema = new Schema({
   need: {
     type: String,
   },
-  currency: [{
+  trades: [{
     type: String,
   }],
 
