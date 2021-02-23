@@ -3,15 +3,16 @@ import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Dashboard from "./Dashboard/Dashboard";
-import AuthPage from "../pages/Auth";
+// import AuthPage from "../pages/Auth";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "./Dashboard/Profile";
-import Footer from "../components/Footer/Footer";
+// import Footer from "../components/Footer/Footer";
 import Home from "../pages/Home";
 import TradePostFormPage from "../pages/TradePostFormPage";
 import Signup from "./signup";
 import Login from "./Login";
 import "./App.css";
+import TransHistory from "./History/TransHistory";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
                 path="/tradepost"
                 component={TradePostFormPage}
               />
+              <PrivateRoute exact path="/transhistory" component={TransHistory} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
             </Switch>
