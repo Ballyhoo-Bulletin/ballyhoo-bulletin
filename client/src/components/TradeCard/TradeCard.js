@@ -25,7 +25,7 @@ export default function TradeCard(props) {
           </ListGroup>
           <Card.Text>
             Additional info:
-            {props.description}
+            {`  ${props.description}`}
           </Card.Text>
           <Button {...props} variant="primary">Claim</Button>
         </Card.Body>
