@@ -13,11 +13,14 @@ const tradeSchema = new Schema({
   need: {
     type: String,
   },
+  city: {
+    type: String,
+  },
   // the "trade you for..."
-  currency: [{
+  trades: [{
     type: String,
   }],
-
+  
   description: {
     type: String,
   },
