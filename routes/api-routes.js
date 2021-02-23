@@ -3,12 +3,30 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const Trade = require("../models/trade");
 
+
+
 router.get("/api/trades/:id", (req, res) => {
   // console.log(req.data.userID);
   console.log(req.params.id);
   User.findOne({ userID: req.params.id }).then((dbUser) => {
-    console.log(dbUser);
+    console.log("This is the history", dbUser);
     Trade.find({city: dbUser.city})
+      .sort({ date: -1 })
+      .then((dbTrade) => {
+        res.json(dbTrade);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
+});
+
+router.get("/api/mytrades/:id", (req, res) => {
+  // console.log(req.data.userID);
+  console.log(req.params.id);
+  User.findOne({ userID: req.params.id }).then((dbUser) => {
+    console.log("This works", dbUser);
+    Trade.find({userID:req.params.id})
       .sort({ date: -1 })
       .then((dbTrade) => {
         res.json(dbTrade);
