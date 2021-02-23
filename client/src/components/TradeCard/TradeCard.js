@@ -16,7 +16,7 @@ export default function TradeCard(props) {
       <Card style={{ width: "25rem", margin: "20px" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body style={styles.text}>
-          <Card.Title>User:{props.email}</Card.Title>
+          <Card.Title>User:  {props.email}</Card.Title>
           <ListGroup variant="flush">
             <ListGroup.Item>I need: {props.need}</ListGroup.Item>
             <ListGroup.Item>
