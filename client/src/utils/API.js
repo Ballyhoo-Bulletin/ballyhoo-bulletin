@@ -2,16 +2,16 @@ import axios from "axios";
 
 export default {
 
+
   getTrade: function (userID) {
     console.log(userID);
-    return axios.get("/api/trades/" +
-      userID
-   
-    )},
+    return axios.get("/api/trades/" + userID);
+  },
 
-  // getMyTrade: function () {
-  //   return axios.get("/api/mytrades");
-  // },
+  getMyTrade: function (userID) {
+    console.log(userID);
+    return axios.get("/api/mytrades/" + userID);
+  },
 
   // getTrade: function (id) {
   //   return axios.get("/api/trades/" + id);
