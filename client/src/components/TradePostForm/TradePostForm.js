@@ -30,7 +30,7 @@ const TradePostForm = () => {
     API.saveTrade({
       userID: currentUser.uid,
       need: need,
-      trades: options,
+      trades: options + ", ",
       description: description,
       // photo: photoRef.current.value,
     })
@@ -47,7 +47,7 @@ const TradePostForm = () => {
   return (
     <div>
       <Form onSubmit={handleFormSubmit}>
-      <Form.Label className="letters">{`${email}`}</Form.Label>
+      
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label className="letters">What do you want to trade?</Form.Label>
           <Form.Control
