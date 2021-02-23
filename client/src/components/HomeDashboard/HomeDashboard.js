@@ -1,10 +1,13 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { useAuth } from "../../contexts/AuthContext";
 import API from "../../utils/API";
 import "./style.css";
 import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {
-  const { loading, value, error } = useAsync(API.getTrade);
+  const { currentUser } = useAuth();
+  console.log(currentUser);
+  const { loading, value, error } = useAsync(API.getTrade, currentUser.uid);
   if (loading) return "loading...";
   if (error) {
     console.log(error);
@@ -16,16 +19,15 @@ const HomeDashboard = () => {
 
     function handleSubmit() {
       // console.log(data);
-    //   console.log("Trade Claimed");
-    //   API.claimTrade({
-    //   dbData:dbData
-    //   })
-    // .then((result) => {
-    //     console.log("Claims data", result);
-    //   })
-    //   .catch((err) => console.log(err));
+      //   console.log("Trade Claimed");
+      //   API.claimTrade({
+      //   dbData:dbData
+      //   })
+      // .then((result) => {
+      //     console.log("Claims data", result);
+      //   })
+      //   .catch((err) => console.log(err));
       alert("You have claimed this trade!");
-      
     }
 
     return (
@@ -37,13 +39,12 @@ const HomeDashboard = () => {
             id={data.id}
             key={data.id}
             // email={dbData.email}
+            email={data.email}
             need={data.need}
-            currency={data.currency}
+            trades={data.trades}
             description={data.description}
             onClick={handleSubmit}
-            
           />
-          
         ))}
       </div>
     );
@@ -84,7 +85,7 @@ const HomeDashboard = () => {
 
 export default HomeDashboard;
 
-const useAsync = (asyncFunction, immediate = true) => {
+const useAsync = (asyncFunction, ...args) => {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
@@ -94,7 +95,7 @@ const useAsync = (asyncFunction, immediate = true) => {
     setValue(null);
     setError(null);
 
-    return asyncFunction()
+    return asyncFunction(...args)
       .then((response) => {
         setValue(response);
         setLoading(false);
@@ -106,10 +107,8 @@ const useAsync = (asyncFunction, immediate = true) => {
   }, [asyncFunction]);
 
   useEffect(() => {
-    if (immediate) {
-      execute();
-    }
-  }, [execute, immediate]);
+    execute();
+  }, [execute]);
 
   return { execute, loading, value, error };
 };
