@@ -14,19 +14,7 @@ const TradePostForm = () => {
   const { currentUser } = useAuth();
   const photoRef = useRef();
   const history = useHistory();
-  // const {id} = useParams();
-
-   useEffect(() => {
-  
-    // API.getUser(id)
-    // .then(res => setEmail(res.data.email))
-    // .catch(err => console.log(err));
-    
-
-  }, []);
-
-
-
+ 
 
   function handleSelectChange(e) {
     e.preventDefault();
@@ -42,7 +30,7 @@ const TradePostForm = () => {
     API.saveTrade({
       userID: currentUser.uid,
       need: need,
-      currency: options,
+      trades: options,
       description: description,
       // photo: photoRef.current.value,
     })
