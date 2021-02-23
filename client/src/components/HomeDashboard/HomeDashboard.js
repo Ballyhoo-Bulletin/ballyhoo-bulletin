@@ -38,7 +38,7 @@ const HomeDashboard = () => {
             // image would go here once available
             id={data.id}
             key={data.id}
-            // email={dbData.email}
+            
             email={data.email}
             need={data.need}
             trades={data.trades}
