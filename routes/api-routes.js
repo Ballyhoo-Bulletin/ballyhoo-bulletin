@@ -3,16 +3,32 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const Trade = require("../models/trade");
 
-router.get("/api/trades/", (req, res) => {
-  Trade.find({})
-    .sort({ date: -1 })
-    .then((dbTrade) => {
-      res.json(dbTrade);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
+router.get("/api/trades/:id", (req, res) => {
+  // console.log(req.data.userID);
+  console.log(req.params.id);
+  User.findOne({ userID: req.params.id }).then((dbUser) => {
+    console.log(dbUser);
+    Trade.find({city: dbUser.city})
+      .sort({ date: -1 })
+      .then((dbTrade) => {
+        res.json(dbTrade);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
 });
+
+// router.get("/api/trades/", (req, res) => {
+//   Trade.find({city})
+//     .sort({ date: -1 })
+//     .then((dbTrade) => {
+//         res.json(dbTrade);
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
 
 // router.get("/api/mytrades", (req, res) => {
 //   User.find({})
@@ -28,7 +44,7 @@ router.get("/api/trades/", (req, res) => {
 // });
 
 router.get("/api/mytrades", ({ body }, res) => {
-  User.find( body)
+  User.find({})
     .then((dbTrade) => {
       console.log("TestDBTrade:", dbTrade);
       // console.log("From Mytrades:", dbTrade)
@@ -64,15 +80,7 @@ router.post("/api/claims", ({ body }, res) => {
 //     });
 // })
 
-// router.get("/api/user/", (req, res) => {
-//   User.find({ city })
-//     .then((userCity) => {
-//       res.json(userCity);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
+
 
 router.get("/api/user", (req, res) => {
   User.findById(req.params.id)
@@ -96,21 +104,21 @@ router.post("/api/user", ({ body }, res) => {
     });
 });
 
-
 router.post("/api/trades", ({ body }, res) => {
   console.log(body);
-  Trade.create(body)
+  User.findOne({userID: body.userID }).then((dbUser) =>{
+    Trade.create({...body, city: dbUser.city, email:dbUser.email})
     .then(({ _id }) =>
       User.findOneAndUpdate(
         { userID: body.userID },
-        // finds Trade Post and pushes transaction id onto User
+        // finds Trade Post and pushes trade transaction id onto User
         { $push: { trades: _id } },
         { new: true }
       )
     )
     .then(({ _id }) =>
-    // updates trade post transaction with user who created post
-      Trade.findOneAndUpdate({ $push: { userID: userID } }, { new: true })
+      // updates newly created trade post transaction with user who created post
+      Trade.findOneAndUpdate({}, { $push: { userID: userID } }, { new: true })
     )
     .then((dbUser) => {
       res.json(dbUser);
@@ -119,9 +127,9 @@ router.post("/api/trades", ({ body }, res) => {
     .catch((err) => {
       res.json(err);
     });
+  })
+  
   console.log("Successfully into db.");
 });
 
-
 module.exports = router;
-
