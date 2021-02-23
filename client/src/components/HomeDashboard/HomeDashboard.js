@@ -1,7 +1,7 @@
 
 import React, { useState, useCallback, useEffect, Component } from "react";
 import API from "../../utils/API";
-import "./style.css";
+// import "./style.css";
 import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {

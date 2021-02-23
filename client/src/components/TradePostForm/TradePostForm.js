@@ -47,8 +47,8 @@ const TradePostForm = () => {
   return (
     <div>
       <Form onSubmit={handleFormSubmit}>
-        <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label>What do you want to trade?</Form.Label>
+        <Form.Group controlId="trade">
+          <Form.Label className="text-white">What do you want to trade?</Form.Label>
           <Form.Control
             name="need"
             onChange={(e) => setNeed(e.target.value)}
@@ -57,7 +57,7 @@ const TradePostForm = () => {
           />
         </Form.Group>
         <Form.Group controlId="TradeGroups2">
-          <Form.Label>Trade you for:</Form.Label>
+          <Form.Label className="text-white">Trade you for:</Form.Label>
           <Form.Control
             value={options}
             onChange={handleSelectChange}
@@ -76,7 +76,7 @@ const TradePostForm = () => {
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="description">
-          <Form.Label>Description</Form.Label>
+          <Form.Label className="text-white">Description</Form.Label>
           <Form.Control
             name="description"
             onChange={(e) => setDescription(e.target.value)}

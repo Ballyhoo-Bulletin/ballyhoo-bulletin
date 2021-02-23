@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
+import { Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import AuthPage from "../pages/Auth";
@@ -13,10 +15,14 @@ import "./App.css";
 
 function App() {
   return (
-    <Container
-      className="align-items-center"
+    <Container fluid="sm"
+      className="justify-content-center"
       style={{ minHeight: "100vh" }}
     >
+      <Row xs={2}>
+        <Col> 1 of 2</Col>
+        {/* <Col> 1 of 2</Col> */}
+      
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
           <AuthProvider>
@@ -34,7 +40,9 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-    // </Container>
+      
+      </Row>
+    </Container>
   );
 }
 
