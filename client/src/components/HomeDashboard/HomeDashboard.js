@@ -21,16 +21,16 @@ const HomeDashboard = () => {
 
     function handleSubmit() {
       console.log(claimed);
-      // API.claimTrade({
-      //   // email: email.data.value
-      //   // need: data.need,
-      //   // trades: data.trade,
-      //   // description: data.description,
-      // })
-      //   .then((result) => {
-      //     console.log("Claims data", result);
-      //   })
-      //   .catch((err) => console.log(err));
+      API.claimTrade({
+        email: email.data.value,
+        need: data.need,
+        trades: data.trade,
+        description: data.description,
+      })
+        .then((result) => {
+          console.log("Claims data", result);
+        })
+        .catch((err) => console.log(err));
       alert("You have claimed this trade!");
     }
 
