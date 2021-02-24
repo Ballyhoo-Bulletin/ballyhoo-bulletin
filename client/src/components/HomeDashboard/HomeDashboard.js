@@ -6,7 +6,8 @@ import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {
   const { currentUser } = useAuth();
-  console.log(currentUser);
+  const [claimed, setClaimed] = useState()
+  // console.log(currentUser);
   const { loading, value, error } = useAsync(API.getTrade, currentUser.uid);
   if (loading) return "loading...";
   if (error) {
@@ -14,14 +15,16 @@ const HomeDashboard = () => {
     return <div>error</div>;
   }
   if (value) {
+    
     const dbData = value.data;
     console.log(dbData);
-
+    // console.log(dbData);
+  
     function handleSubmit() {
-      // console.log(data);
-      //   console.log("Trade Claimed");
+      console.log(claimed)
+      //   // console.log("Trade Claimed");
       //   API.claimTrade({
-      //   dbData:dbData
+      //   // email: data.email
       //   })
       // .then((result) => {
       //     console.log("Claims data", result);
@@ -32,18 +35,22 @@ const HomeDashboard = () => {
 
     return (
       <div>
-        {dbData.map((data) => (
+        {dbData.map((data, index) => (
           <TradeCard
             dbData={dbData}
             // image would go here once available
             id={data.id}
-            key={data.id}
+            key={index}
             
             email={data.email}
             need={data.need}
             trades={data.trades}
             description={data.description}
-            onClick={handleSubmit}
+            value={data}
+            onChange={(e) => {
+              data.data = e.target.value;
+              setClaimed([...claimed])}}
+            onClick ={handleSubmit}
           />
         ))}
       </div>
@@ -51,7 +58,7 @@ const HomeDashboard = () => {
     // dbData only available here in this bracket
   }
   // Thi values is showing up null && as data
-  console.log(value);
+  // console.log(value);
 
   // console.log("database DATA maybe?", dbData);
   return (
