@@ -2,12 +2,14 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import API from "../../utils/API";
 import "./style.css";
-import TradeCard from "../TradeCard/TradeCard";
+import TradeCard from "../TradeCard/HistoryCard";
+import SideNavbar from "../Nav/SideNavbar";
+import Header from "../Header/Header";
 
-const HomeDashboard = () => {
+const TransHistory = () => {
   const { currentUser } = useAuth();
   console.log(currentUser);
-  const { loading, value, error } = useAsync(API.getTrade, currentUser.uid);
+  const { loading, value, error } = useAsync(API.getMyTrade, currentUser.uid);
   if (loading) return "loading...";
   if (error) {
     console.log(error);
@@ -17,28 +19,39 @@ const HomeDashboard = () => {
     const dbData = value.data;
     console.log(dbData);
 
+    //   const { loading, value, error } = useAsync(API.getMyTrade);
+    //   if (loading) return "loading...";
+    //   if (error) {
+    //     console.log(error);
+    //     return <div>error</div>;
+    //   }
+    //   if (value) {
+    //     const dbData = value.data;
+    //     console.log(dbData);
+
     function handleSubmit() {
       // console.log(data);
       //   console.log("Trade Claimed");
-      //   API.claimTrade({
+      //   API.deleteTrade({
       //   dbData:dbData
       //   })
       // .then((result) => {
       //     console.log("Claims data", result);
       //   })
       //   .catch((err) => console.log(err));
-      alert("You have claimed this trade!");
+      alert("You deleted this post.");
     }
 
     return (
       <div>
+        <Header />
+        <SideNavbar />
         {dbData.map((data) => (
           <TradeCard
             dbData={dbData}
             // image would go here once available
             id={data.id}
             key={data.id}
-            
             email={data.email}
             need={data.need}
             trades={data.trades}
@@ -48,12 +61,7 @@ const HomeDashboard = () => {
         ))}
       </div>
     );
-    // dbData only available here in this bracket
   }
-  // Thi values is showing up null && as data
-  console.log(value);
-
-  // console.log("database DATA maybe?", dbData);
   return (
     <div className="container">
       <div>
@@ -64,13 +72,13 @@ const HomeDashboard = () => {
           <p>thrumup with icon</p>
         </div>
         <div className="col-md-10">
+          
         </div>
       </div>
     </div>
   );
 };
-
-export default HomeDashboard;
+export default TransHistory;
 
 const useAsync = (asyncFunction, ...args) => {
   const [loading, setLoading] = useState(false);
