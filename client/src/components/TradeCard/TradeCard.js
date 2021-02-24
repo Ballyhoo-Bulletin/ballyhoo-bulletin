@@ -11,6 +11,7 @@ const styles = {
 export default function TradeCard(props) {
   const { currentUser } = useAuth();
   // console.log(props);
+
   return (
     <div>
       <Card style={{ width: "25rem", margin: "20px" }}>

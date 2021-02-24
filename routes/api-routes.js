@@ -2,8 +2,15 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/user");
 const Trade = require("../models/trade");
-
-
+router.get("/api/trades/", (req, res) => {
+  Trade.find({})
+    .then((dbTrade) => {
+      res.json(dbTrade);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 router.get("/api/trades/:id", (req, res) => {
   // console.log(req.data.userID);
@@ -145,7 +152,6 @@ router.post("/api/trades", ({ body }, res) => {
       res.json(err);
     });
   })
-  
   console.log("Successfully into db.");
 });
 
