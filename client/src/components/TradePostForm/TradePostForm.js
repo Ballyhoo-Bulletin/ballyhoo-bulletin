@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
-import "./style.css";
+// import "./style.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 // import { useParams } from "react-router-dom";
@@ -93,8 +93,8 @@ const TradePostForm = () => {
           <Form.File ref={photoRef} id="UploadPhoto" label="Upload Photo" />
         </Form.Group>
         <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
-            <Button type="submit">Post Trade</Button>
+          <Col sm={{ span: 10, offset: 4 }}>
+            <Button  type="submit">Post Trade</Button>
           </Col>
         </Form.Group>
       </Form>
