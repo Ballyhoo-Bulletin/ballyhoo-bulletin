@@ -1,6 +1,6 @@
-const router = require("express").Router(),
-  errorHandler = require("../controllers/errorHandler");
+// const router = require("express").Router(),
+//   errorHandler = require("../controllers/errorHandler");
 
-router.use(errorHandler.err404, errorHandler.err500);
+// router.use(errorHandler.err404, errorHandler.err500);
 
-module.exports = router;
+// module.exports = router;

@@ -1,91 +1,91 @@
 // Step 1 - set up express & mongoose
 
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+// const express = require("express");
+// const app = express();
+// const bodyParser = require("body-parser");
+// const mongoose = require("mongoose");
 
-const fs = require("fs");
-const path = require("path");
-require("dotenv/config");
+// const fs = require("fs");
+// const path = require("path");
+// require("dotenv/config");
 
 // Step 2 - connect to the database
-mongoose.connect(
-  process.env.MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  (err) => {
-    console.log("connected");
-  }
-);
+// mongoose.connect(
+//   process.env.MONGO_URL,
+//   { useNewUrlParser: true, useUnifiedTopology: true },
+//   (err) => {
+//     console.log("connected");
+//   }
+// );
 
 // Step 3 - code was added to ./delmos.js;
 
 // Step 4 - set up EJS
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 // Set EJS as templating engine
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 
 // Step 5 - set up multer for storing uploaded files
 
-const multer = require("multer");
+// const multer = require("multer");
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + "-" + Date.now());
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "uploads");
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, file.fieldname + "-" + Date.now());
+//   },
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
 // Step 6 - load the mongoose model for Image
 
-const imgModel = require("./model");
+// const imgModel = require("./model");
 
 // Step 7 - the GET request handler that provides the HTML UI
-app.get("/", (req, res) => {
-  imgModel.find({}, (err, items) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send("An error occurred", err);
-    } else {
-      res.render("imagesPage", { items: items });
-    }
-  });
-});
+// app.get("/", (req, res) => {
+//   imgModel.find({}, (err, items) => {
+//     if (err) {
+//       console.log(err);
+//       res.status(500).send("An error occurred", err);
+//     } else {
+//       res.render("imagesPage", { items: items });
+//     }
+//   });
+// });
 
 // Step 8 - the POST handler for processing the uploaded file
 
-app.post("/", upload.single("image"), (req, res, next) => {
-  var obj = {
-    name: req.body.name,
-    desc: req.body.desc,
-    img: {
-      data: fs.readFileSync(
-        path.join(__dirname + "/uploads/" + req.file.filename)
-      ),
-      contentType: "image/png",
-    },
-  };
-  imgModel.create(obj, (err, item) => {
-    if (err) {
-      console.log(err);
-    } else {
+// app.post("/", upload.single("image"), (req, res, next) => {
+//   var obj = {
+//     name: req.body.name,
+//     desc: req.body.desc,
+//     img: {
+//       data: fs.readFileSync(
+//         path.join(__dirname + "/uploads/" + req.file.filename)
+//       ),
+//       contentType: "image/png",
+//     },
+//   };
+//   imgModel.create(obj, (err, item) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
       // item.save();
-      res.redirect("/");
-    }
-  });
-});
+//       res.redirect("/");
+//     }
+//   });
+// });
 
 // Step 9 - configure the server's port
 
-var port = process.env.PORT || "3000";
-app.listen(port, (err) => {
-  if (err) throw err;
-  console.log("Server listening on port", port);
-});
+// var port = process.env.PORT || "3000";
+// app.listen(port, (err) => {
+//   if (err) throw err;
+//   console.log("Server listening on port", port);
+// });

@@ -6,9 +6,11 @@ const tradeSchema = new Schema({
   need: {
     type: String,
   },
-  trades: [{
-    type: String,
-  }],
+  trades: [
+    {
+      type: String,
+    },
+  ],
 
   description: {
     type: String,
@@ -17,6 +19,10 @@ const tradeSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+
+  // uploadImages: {
+  //   type: String,
+  // },
 });
 
 const Trade = mongoose.model("Trade", tradeSchema);

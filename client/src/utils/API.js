@@ -28,7 +28,7 @@ export default {
     return axios.post("/api/trades", tradeData);
   },
 
-  likeDislike: function (id, action) {
-    return axios.put("/api/posts/" + id, { action });
-  },
+  // likeDislike: function (id, action) {
+  //   return axios.put("/api/posts/" + id, { action });
+  // },
 };

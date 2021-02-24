@@ -1,5 +1,9 @@
 const db = require("../models");
 
+// const imageModel = require("../models/image");
+// //IMPORT CLOUDINARY CONFIG
+// const cloud = require("../config/cloudinaryConfig");
+
 module.exports = {
   findAll: function (req, res) {
     db.User.find(req.query)

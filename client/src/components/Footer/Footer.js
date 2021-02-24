@@ -1,13 +1,13 @@
-import React from "react";
-import "./style.css";
+// import React from "react";
+// import "./style.css";
 
-function Footer() {
-  return (
-    <footer>
-      <span>Ballyhoo-Bulletin 2021</span>
-      <p>Contributors:</p>
-    </footer>
-  );
-}
+// function Footer() {
+//   return (
+//     <footer>
+//       <span>Ballyhoo-Bulletin 2021</span>
+//       <p>Contributors:</p>
+//     </footer>
+//   );
+// }
 
-export default Footer;
+// export default Footer;
