@@ -1,68 +1,3 @@
-<<<<<<< HEAD
-import axios from "axios";
-
-export default {
-
-  getTrade: function (userID) {
-    console.log(userID);
-    return axios.get("/api/trades/" + userID);
-  },
-
-  getMyTrade: function (userID) {
-    console.log(userID);
-    return axios.get("/api/mytrades/" + userID);
-  },
-
-  // getTrade: function (id) {
-  //   return axios.get("/api/trades/" + id);
-  // },
-
-  // deleteTrade: function (id) {
-  //   return axios.delete("/api/trades/" + id);
-  // },
-
-  saveUser: function (userData) {
-    console.log("User data entered", userData);
-    return axios.post("/api/user", userData);
-  },
-
-  getUser: function (userData) {
-    console.log("User data entered", userData);
-    return axios.get("/api/user", userData);
-  },
-
-  // getUser: function(id) {
-  //   console.log("User id is:",id);
-  //   return axios.get("/api/user/", id);
-  // },
-  // claimTrade: function (tradeData) {
-  //   console.log("Claim trade iniated", tradeData);
-  //   return axios.post("/api/claims", tradeData);
-  // },
-  saveTrade: function (tradeData) {
-    console.log("Trade data entered", tradeData);
-    return axios.post("/api/trades", tradeData);
-  },
-};
-
-
-
-
-
-// const router = require("express").Router();
-// const mongoose = require("mongoose");
-// const User = require("../models/user");
-// const Trade = require("../models/trade");
-// const Image = requrie("../models/image");
-// const upload = require("../config/multerConfig");
-// const tradeController = require("../controllers/tradeController");
-  
-
-// router.get("/api/trades/", (req, res) => {
-//   Trade.find({})
-//     .then((dbTrade) => {
-//       res.json(dbTrade);
-=======
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/user");
@@ -82,7 +17,7 @@ router.get("/api/trades/:id", (req, res) => {
   console.log(req.params.id);
   User.findOne({ userID: req.params.id }).then((dbUser) => {
     console.log("This is the history", dbUser);
-    Trade.find({city: dbUser.city})
+    Trade.find({ city: dbUser.city })
       .sort({ date: -1 })
       .then((dbTrade) => {
         res.json(dbTrade);
@@ -98,7 +33,7 @@ router.get("/api/mytrades/:id", (req, res) => {
   console.log(req.params.id);
   User.findOne({ userID: req.params.id }).then((dbUser) => {
     console.log("This works", dbUser);
-    Trade.find({userID:req.params.id})
+    Trade.find({ userID: req.params.id })
       .sort({ date: -1 })
       .then((dbTrade) => {
         res.json(dbTrade);
@@ -114,110 +49,11 @@ router.get("/api/mytrades/:id", (req, res) => {
 //     .sort({ date: -1 })
 //     .then((dbTrade) => {
 //         res.json(dbTrade);
->>>>>>> develop
 //     })
 //     .catch((err) => {
 //       res.json(err);
 //     });
 // });
-<<<<<<< HEAD
-// app.get(‘/account’, (req, res) => {
-//   if(!req.session.user) {
-//       res.redirect(‘/login’);
-//   } else {
-//       res.render(‘account’, {user: req.session.user});
-//   }
-// });
-// router.get("/api/user/", (req, res) => {
-//   User.find({ city })
-//     .then(({ _id }) => {
-//       res.json(dbUser);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
-// router.post("/api/user", ({ body }, res) => {
-//   User.create(body)
-//     .then((userInfo) => {
-//       res.json(userInfo);
-//       console.log("User into DB", userInfo);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
-// router.post("/api/trades", ({ body }, res) => {
-//   console.log(body);
-//   Trade.create(body)
-//     .then(({ _id }) =>
-//       User.findOneAndUpdate(
-//         { userID: body.userID },
-//         { $push: { trades: _id } },
-//         { new: true }
-//       )
-//       Image.findOneAndUpdate(
-//         { imageName:req.files[0].originalname},
-//         { imageUrl: req.files[0].path },
-//         { imageId: "" },
-//         { $push: { trades: _id } },
-//          { new: true }
-        
-//       )
-
-//     )
-//     .then((dbUser) => {
-//       res.json(dbUser);
-      
-//       console.log("Trade updated", dbUser);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-//   console.log("Successfully into db.");
-// });
-
-
-// // router.post(“/api/trades/:id”, ({ body, params }, res) => {
-// //   console.log(req.params.id);
-// //   Trade.create(body)
-// //     .then(() =>
-// //       User.findOneAndUpdate(
-// //         {
-// //           _id: req.params.id,
-// //         },
-// //         {
-// //           $set: {
-// //             trades: req.body.trades,
-// //           },
-// //         },
-// //         { new: true }
-// //       )
-// //     )
-// //     .then((dbUser) => {
-// //       res.json(dbUser);
-// //       console.log(“Trade updated”, dbUser);
-// //     })
-// //     .catch((err) => {
-// //       res.json(err);
-// //     });
-// //   console.log(“Successfully into db.“);
-// // });
-// module.exports = router;
-
-
-// =======================================================================================
-
-
-
-
-// const router = require("express").Router();
-// const mongoose = require("mongoose");
-// const User = require("../models/user");
-// const Trade = require("../models/trade");
-
-// router.get("/api/trades", (req, res) => {
-=======
 
 // router.get("/api/mytrades", (req, res) => {
 //   User.find({})
@@ -260,7 +96,6 @@ router.post("/api/claims", ({ body }, res) => {
 });
 
 // router.get("/api/trades/", (req, res) => {
->>>>>>> develop
 //   Trade.find({})
 //     .then((dbTrade) => {
 //       res.json(dbTrade);
@@ -268,70 +103,13 @@ router.post("/api/claims", ({ body }, res) => {
 //     .catch((err) => {
 //       res.json(err);
 //     });
-<<<<<<< HEAD
-// });
-
-// // router.get("/api/trades/", (req, res) => {
-// //   Trade.find({})
-// //     .then((dbTrade) => {
-// //       res.json(dbTrade);
-// //     })
-// //     .catch((err) => {
-// //       res.json(err);
-// //     });
-// // })
-
-// router.get("/api/user/", (req, res) => {
-//   User.find({})
-//     .then((dbUser) => {
-//       res.json(dbUser);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
-
-// router.post("/api/user", ({ body }, res) => {
-//   User.create(body)
-//     .then((userInfo) => {
-//       res.json(userInfo);
-//       console.log("User into DB", userInfo);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-// });
-
-
-
-// router.post("/api/trades", ({ body }, res) => {
-//   console.log(body);
-//   Trade.create(body)
-//     .then(({ _id }) =>
-//       User.findOneAndUpdate({}, { $push: { trades: _id } }, { new: true })
-//     )
-//     .then((dbUser) => {
-//       res.json(dbUser);
-//       console.log("Trade updated", dbUser);
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-//     console.log("Successfully into db.")
-// });
-
-// module.exports = router;
-=======
 // })
-
-
 
 router.get("/api/user", (req, res) => {
   User.findById(req.params.id)
     .then((userEmail) => {
       res.json(userEmail);
       console.log("Found userEmail", userEmail);
-
     })
     .catch((err) => {
       res.json(err);
@@ -351,30 +129,29 @@ router.post("/api/user", ({ body }, res) => {
 });
 router.post("/api/trades", ({ body }, res) => {
   console.log(body);
-  User.findOne({userID: body.userID }).then((dbUser) =>{
-    Trade.create({...body, city: dbUser.city, email:dbUser.email})
-    .then(({ _id }) =>
-      User.findOneAndUpdate(
-        { userID: body.userID },
-        // finds Trade Post and pushes trade transaction id onto User
-        { $push: { trades: _id } },
-        { new: true }
+  User.findOne({ userID: body.userID }).then((dbUser) => {
+    Trade.create({ ...body, city: dbUser.city, email: dbUser.email })
+      .then(({ _id }) =>
+        User.findOneAndUpdate(
+          { userID: body.userID },
+          // finds Trade Post and pushes trade transaction id onto User
+          { $push: { trades: _id } },
+          { new: true }
+        )
       )
-    )
-    .then(({ _id }) =>
-      // updates newly created trade post transaction with user who created post
-      Trade.findOneAndUpdate({}, { $push: { userID: userID } }, { new: true })
-    )
-    .then((dbUser) => {
-      res.json(dbUser);
-      console.log("Trade updated", dbUser);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-  })
+      .then(({ _id }) =>
+        // updates newly created trade post transaction with user who created post
+        Trade.findOneAndUpdate({}, { $push: { userID: userID } }, { new: true })
+      )
+      .then((dbUser) => {
+        res.json(dbUser);
+        console.log("Trade updated", dbUser);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
   console.log("Successfully into db.");
 });
 
 module.exports = router;
->>>>>>> develop

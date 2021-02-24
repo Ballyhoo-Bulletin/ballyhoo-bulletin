@@ -34,7 +34,7 @@
     "firebase": "^8.2.7",
     "if-env": "^1.0.4",
     "mongo-image-converter": "^1.0.2",
-    "mongoose": "^5.11.17",
+    "mongoose": "^5.11.18",
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^4.0.0",
     "path": "^0.12.7",

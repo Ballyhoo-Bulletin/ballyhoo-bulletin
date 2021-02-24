@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import API from "../../utils/API";
-import "./style.css";
+// import "./style.css";
 import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {

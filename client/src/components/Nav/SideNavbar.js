@@ -28,17 +28,16 @@ export default function SideNavbar() {
   return (
     <div style={styles.sidenav}>
       <Link className="nav-link" style={styles.a} to="/">
-        {" "}
         Dashboard <span className="sr-only">(current)</span>
       </Link>
       <Link className="nav-link" style={styles.a} to="/profile">
-        Profile{" "}
+        Profile
       </Link>
       <Link className="nav-link" style={styles.a} to="/tradepost">
-        Trade{" "}
+        Trade
       </Link>
       <Link className="nav-link" style={styles.a} to="/transhistory">
-        History{" "}
+        History
       </Link>
       {/* <Link style={styles.a} to=“/trade” component={TradePostForm}>Trade</Link> */}
       <Link className="nav-link" style={styles.a} to="/login">
