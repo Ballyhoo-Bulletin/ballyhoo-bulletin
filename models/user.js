@@ -10,12 +10,19 @@ const userSchema = new Schema({
   city: {
     type: String,
   },
+  skills: [{
+    type: String,
+  }],
+  // references Trade Posts"
   trades: [
     {
       type: Schema.Types.ObjectId,
       ref: "Trade",
     },
   ],
+  claimed: [{
+    type: String,
+  }],
   date: {
     type: Date,
     default: Date.now,
