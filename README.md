@@ -30,11 +30,12 @@ Ballywho Bulletin is an app that allows a user to post goods and services for tr
 
 ## Getting Started
 <br>
-Clone the repo: 
+Clone the repo: <br>
 git clone git@github.com:Ballyhoo-Bulletin/ballyhoo-bulletin.git
 npm i to install dependencies
 
 ## Usage
+(put demo here?)
 
 ## Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
