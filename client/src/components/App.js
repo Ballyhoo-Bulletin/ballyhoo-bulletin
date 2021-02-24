@@ -4,7 +4,6 @@ import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import AuthPage from "../pages/Auth";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "./Dashboard/Profile";
 import Home from "../pages/Home";

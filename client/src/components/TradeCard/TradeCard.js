@@ -13,7 +13,7 @@ export default function TradeCard(props) {
   console.log(props);
   return (
     <div>
-      <Card className="justify-content-center">
+      <Card id="tradecard" className="justify-content-center">
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body style={styles.text}>
           <Card.Title>User:{}</Card.Title>
