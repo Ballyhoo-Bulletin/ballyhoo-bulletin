@@ -64,19 +64,6 @@ const HomeDashboard = () => {
           <p>thrumup with icon</p>
         </div>
         <div className="col-md-10">
-          {/* {dbData.map((item) => ( */}
-          {/* <TradeCard /> */}
-          {/* // item={value}
-              // // image would go here
-              email={dbData.email}
-              // id={value.data.id}
-              // key={value.data.id}
-              // need={value.data.need}
-              // trades={value.data.trades}
-              // description={value.data.description}
-            /> */}
-          {/* ))} */}
-          {/* pass down data props to tradeCard Where is data coming from in this console log?*/}
         </div>
       </div>
     </div>
