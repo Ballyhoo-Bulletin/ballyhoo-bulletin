@@ -37,6 +37,9 @@ export default function SideNavbar() {
       <Link className="nav-link" style={styles.a} to="/tradepost">
         Trade{" "}
       </Link>
+      <Link className="nav-link" style={styles.a} to="/transhistory">
+        History{" "}
+      </Link>
       {/* <Link style={styles.a} to=“/trade” component={TradePostForm}>Trade</Link> */}
       <Link className="nav-link" style={styles.a} to="/login">
         {logout}Logout

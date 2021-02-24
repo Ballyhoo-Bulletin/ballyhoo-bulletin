@@ -16,7 +16,7 @@ export default function TradeCard(props) {
       <Card style={{ width: "25rem", margin: "20px" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body style={styles.text}>
-          <Card.Title>User:  {props.email}</Card.Title>
+          <Card.Title>User: {props.email}</Card.Title>
           <ListGroup variant="flush">
             <ListGroup.Item>I need: {props.need}</ListGroup.Item>
             <ListGroup.Item>
@@ -27,17 +27,14 @@ export default function TradeCard(props) {
             Additional info:
             {`  ${props.description}`}
           </Card.Text>
-          <Button {...props} variant="primary">Claim</Button>
+          <Button {...props} variant="primary">
+            Claim
+          </Button>
         </Card.Body>
       </Card>
     </div>
   );
 }
-
-
-
-
-
 
 // import React, { useState, useEffect } from "react";
 // import { Card, Button, ListGroup } from "react-bootstrap";

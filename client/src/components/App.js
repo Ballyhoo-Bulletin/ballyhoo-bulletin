@@ -12,14 +12,11 @@ import TradePostFormPage from "../pages/TradePostFormPage";
 import Signup from "./signup";
 import Login from "./Login";
 import "./App.css";
-// import TransHistory from "./History/TransHistory";
+import TransHistory from "./History/TransHistory";
 
 function App() {
   return (
-    <Container
-      className="align-items-center"
-      style={{ minHeight: "100vh" }}
-    >
+    <Container className="align-items-center" style={{ minHeight: "100vh" }}>
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>
           <AuthProvider>
@@ -31,7 +28,11 @@ function App() {
                 path="/tradepost"
                 component={TradePostFormPage}
               />
-              {/* <PrivateRoute exact path="/transhistory" component={TransHistory} /> */}
+              <PrivateRoute
+                exact
+                path="/transhistory"
+                component={TransHistory}
+              />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
             </Switch>
@@ -43,7 +44,6 @@ function App() {
 }
 
 export default App;
-
 
 // const App = () => {
 //   return (
