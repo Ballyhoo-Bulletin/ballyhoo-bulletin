@@ -6,7 +6,7 @@ import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {
   const { currentUser } = useAuth();
-  const [claimed, setClaimed] = useState()
+  const [claimed, setClaimed] = useState();
   // console.log(currentUser);
   const { loading, value, error } = useAsync(API.getTrade, currentUser.uid);
   if (loading) return "loading...";
@@ -15,18 +15,19 @@ const HomeDashboard = () => {
     return <div>error</div>;
   }
   if (value) {
-    
     const dbData = value.data;
     console.log(dbData);
     // console.log(dbData);
-  
+
     function handleSubmit() {
-      console.log(claimed)
-      //   // console.log("Trade Claimed");
-      //   API.claimTrade({
-      //   // email: data.email
-      //   })
-      // .then((result) => {
+      console.log(claimed);
+      // API.claimTrade({
+      //   // email: email.data.value
+      //   // need: data.need,
+      //   // trades: data.trade,
+      //   // description: data.description,
+      // })
+      //   .then((result) => {
       //     console.log("Claims data", result);
       //   })
       //   .catch((err) => console.log(err));
@@ -40,17 +41,23 @@ const HomeDashboard = () => {
             dbData={dbData}
             // image would go here once available
             id={data.id}
-            key={index}
-            
+            key={data.id}
             email={data.email}
             need={data.need}
             trades={data.trades}
             description={data.description}
-            value={data}
+            // value={data}
             onChange={(e) => {
-              data.data = e.target.value;
-              setClaimed([...claimed])}}
-            onClick ={handleSubmit}
+              e.preventDefault();
+              // setClaimed(data);
+              // console.log(data);
+            }}
+            // onClick={handleSubmit}
+            onClick={(e) => {
+              e.preventDefault();
+             console.log(handleSubmit());
+              console.log(data);
+            }}
           />
         ))}
       </div>
