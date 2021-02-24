@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
 
-
   getTrade: function (userID) {
     console.log(userID);
     return axios.get("/api/trades/" + userID);
