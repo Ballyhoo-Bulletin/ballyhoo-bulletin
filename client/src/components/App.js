@@ -20,8 +20,8 @@ function App() {
       style={{ minHeight: "100vh" }}
     >
       <Row xs={2}>
-        <Col> 1 of 2</Col>
-        {/* <Col> 1 of 2</Col> */}
+        <Col> 1 of 1</Col>
+
       
       <div className="w-100" style={{ maxWidth: "400px" }}>
         <Router>

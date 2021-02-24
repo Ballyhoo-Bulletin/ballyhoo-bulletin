@@ -46,7 +46,7 @@ const TradePostForm = () => {
 
   return (
     <div>
-      <Form onSubmit={handleFormSubmit}>
+      <Form className="justify-content-center" onSubmit={handleFormSubmit}>
         <Form.Group controlId="trade">
           <Form.Label className="text-white">What do you want to trade?</Form.Label>
           <Form.Control
