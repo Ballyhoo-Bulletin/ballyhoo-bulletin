@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import API from "../../utils/API";
-import "./style.css";
+// import "./style.css";
 import TradeCard from "../TradeCard/HistoryCard";
 import SideNavbar from "../Nav/SideNavbar";
 import Header from "../Header/Header";
@@ -71,9 +71,7 @@ const TransHistory = () => {
         <div className="col-md-2">
           <p>thrumup with icon</p>
         </div>
-        <div className="col-md-10">
-          
-        </div>
+        <div className="col-md-10"></div>
       </div>
     </div>
   );
