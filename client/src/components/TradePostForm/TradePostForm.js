@@ -1,23 +1,23 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+// import { useParams } from "react-router-dom";
 
 const TradePostForm = () => {
   const [options, setOptions] = useState([]);
+  const [email, setEmail] = useState({});
   const [need, setNeed] = useState({});
   const [description, setDescription] = useState({});
   const { currentUser } = useAuth();
-
   const photoRef = useRef();
   const history = useHistory();
-  
+ 
+
   function handleSelectChange(e) {
     e.preventDefault();
-
-    // setOptions(e.target.value)
     if (options.includes(e.target.value)) {
       setOptions(options.filter((x) => x !== e.target.value));
     } else {
@@ -30,7 +30,7 @@ const TradePostForm = () => {
     API.saveTrade({
       userID: currentUser.uid,
       need: need,
-      trades: options,
+      trades: options + ", ",
       description: description,
       // photo: photoRef.current.value,
     })
@@ -51,7 +51,9 @@ const TradePostForm = () => {
           <Form.Label className="text-white">What do you want to trade?</Form.Label>
           <Form.Control
             name="need"
-            onChange={(e) => setNeed(e.target.value)}
+            onChange={(e) =>
+              setNeed(e.target.value )
+            }
             type="text"
             placeholder=""
           />
@@ -79,7 +81,10 @@ const TradePostForm = () => {
           <Form.Label className="text-white">Description</Form.Label>
           <Form.Control
             name="description"
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) =>
+              setDescription(e.target.value )
+            }
+            
             as="textarea"
             rows={3}
           />

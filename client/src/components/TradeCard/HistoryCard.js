@@ -8,26 +8,25 @@ const styles = {
   },
 };
 
-export default function TradeCard(props) {
+export default function HistoryCard(props) {
   const { currentUser } = useAuth();
   // console.log(props);
   return (
     <div>
-      <Card id="tradecard" className="justify-content-center">
+      <Card style={{ width: "25rem", margin: "20px" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body style={styles.text}>
           <Card.Title>User:  {props.email}</Card.Title>
           <ListGroup variant="flush">
-            <ListGroup.Item>I need: {props.need}</ListGroup.Item>
+            <ListGroup.Item>Posted: {props.need}</ListGroup.Item>
             <ListGroup.Item>
-              And can trade you for: {props.trades}
+              Traded for: {`${props.trades} `}
             </ListGroup.Item>
           </ListGroup>
           <Card.Text>
-            Additional info:
-            {`  ${props.description}`}
+            Additional info:  {props.description}
           </Card.Text>
-          <Button {...props} variant="primary">Claim</Button>
+          <Button {...props} variant="primary">Delete</Button>
         </Card.Body>
       </Card>
     </div>
