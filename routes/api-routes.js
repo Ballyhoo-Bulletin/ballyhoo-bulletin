@@ -128,7 +128,6 @@ router.post("/api/user", ({ body }, res) => {
       res.json(err);
     });
 });
-
 router.post("/api/trades", ({ body }, res) => {
   console.log(body);
   User.findOne({userID: body.userID }).then((dbUser) =>{
