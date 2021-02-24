@@ -112,10 +112,12 @@ router.get("/api/user", (req, res) => {
     .then((userEmail) => {
       res.json(userEmail);
       console.log("Found userEmail", userEmail);
+
     })
     .catch((err) => {
       res.json(err);
     });
+  console.log("Successfully into db.");
 });
 
 router.post("/api/user", ({ body }, res) => {
@@ -128,7 +130,6 @@ router.post("/api/user", ({ body }, res) => {
       res.json(err);
     });
 });
-
 router.post("/api/trades", ({ body }, res) => {
   console.log(body);
   User.findOne({userID: body.userID }).then((dbUser) =>{
