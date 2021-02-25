@@ -6,7 +6,7 @@ import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {
   const { currentUser } = useAuth();
-  const [claimed, setClaimed] = useState();
+  
   // console.log(currentUser);
   const { loading, value, error } = useAsync(API.getTrade, currentUser.uid);
   if (loading) return "loading...";
@@ -23,6 +23,7 @@ const HomeDashboard = () => {
       console.log(data);
       alert("You have claimed this trade!");
       API.claimTrade({
+        currentUser: currentUser.uid,
         id: data._id,
         userID: data.userID,
         email: data.email,
