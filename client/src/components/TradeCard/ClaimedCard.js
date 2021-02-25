@@ -6,6 +6,9 @@ const styles = {
   text: {
     textAlign: "center",
   },
+  color: {
+    color: "white",
+  }
 };
 
 export default function ClaimedCard(props) {
@@ -13,19 +16,19 @@ export default function ClaimedCard(props) {
   // console.log(props);
   return (
     <div>
-      <Card style={{ width: "25rem", margin: "20px" }}>
+      <Card style={{ width: "25rem", margin: "10px", backgroundColor: "#C22130"  }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body style={styles.text}>
-          <Card.Title>Claimed by:  {props.email}</Card.Title>
+          <Card.Title style={styles.color}>Claimed by:  {props.email}</Card.Title>
           <ListGroup variant="flush">
-            <ListGroup.Item>Giving User: {props.need}</ListGroup.Item>
+            <ListGroup.Item><b>Giving User:</b> {props.need}</ListGroup.Item>
             <ListGroup.Item>
-              Getting from User: {`${props.trades} `}
+             <b>Getting from User:</b>  {`${props.trades} `}
             </ListGroup.Item>
           </ListGroup>
-          <Card.Text>
-            Additional info:  {props.description}
-          </Card.Text>
+          <ListGroup.Item>
+           <b>Additional info:</b>   {props.description}
+          </ListGroup.Item>
           <Button {...props} variant="primary">Delete</Button>
         </Card.Body>
       </Card>

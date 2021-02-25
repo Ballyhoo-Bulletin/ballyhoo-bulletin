@@ -6,6 +6,9 @@ const styles = {
   text: {
     textAlign: "center",
   },
+  color: {
+    color: "white",
+  }
 };
 
 export default function HistoryCard(props) {
@@ -13,19 +16,19 @@ export default function HistoryCard(props) {
   // console.log(props);
   return (
     <div>
-      <Card style={{ width: "25rem", margin: "20px" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+      <Card style={{ width: "25rem", margin: "10px", backgroundColor: "#486577"  }}>
+        <Card.Img variant="top" src="" />
         <Card.Body style={styles.text}>
-          <Card.Title>User:  {props.email}</Card.Title>
+          <Card.Title style={styles.color}>User:  {props.email}</Card.Title>
           <ListGroup variant="flush">
-            <ListGroup.Item>Posted: {props.need}</ListGroup.Item>
+            <ListGroup.Item><b>Posted:</b> {props.need}</ListGroup.Item>
             <ListGroup.Item>
-              Traded for: {`${props.trades} `}
+              <b>Traded for:</b> {`${props.trades} `}
             </ListGroup.Item>
           </ListGroup>
-          <Card.Text>
-            Additional info:  {props.description}
-          </Card.Text>
+          <ListGroup.Item>
+            <b>Additional info:</b>  {props.description}
+          </ListGroup.Item>
           <Button {...props} variant="primary">Delete</Button>
         </Card.Body>
       </Card>
