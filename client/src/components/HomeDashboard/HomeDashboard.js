@@ -19,24 +19,25 @@ const HomeDashboard = () => {
     console.log(dbData);
     // console.log(dbData);
 
-    function handleSubmit() {
-      console.log(claimed);
-      API.claimTrade({
-        email: email.data.value,
-        need: data.need,
-        trades: data.trade,
-        description: data.description,
-      })
-        .then((result) => {
-          console.log("Claims data", result);
-        })
-        .catch((err) => console.log(err));
+    function handleSubmit(data) {
+      console.log(data);
       alert("You have claimed this trade!");
+      API.claimTrade({
+        id: data._id,
+        userID: data.userID,
+        email: data.email,
+        trades: data.trades,
+        description: data.description,
+      });
+        // .then((result) => {
+        //   return console.log("Claims data", result);
+        // })
+        // .catch((err) => console.log(err));
     }
 
     return (
       <div>
-        {dbData.map((data, index) => (
+        {dbData.map((data) => (
           <TradeCard
             dbData={dbData}
             // image would go here once available
@@ -47,16 +48,15 @@ const HomeDashboard = () => {
             trades={data.trades}
             description={data.description}
             // value={data}
-            onChange={(e) => {
-              e.preventDefault();
-              // setClaimed(data);
-              // console.log(data);
-            }}
+            // onChange={(e) => {
+            //   e.preventDefault();
+            //   // setClaimed(data);
+            //   // console.log(data);
+            // }}
             // onClick={handleSubmit}
             onClick={(e) => {
               e.preventDefault();
-             console.log(handleSubmit());
-              console.log(data);
+              handleSubmit(data);
             }}
           />
         ))}
@@ -77,8 +77,7 @@ const HomeDashboard = () => {
         <div className="col-md-2">
           <p>thrumup with icon</p>
         </div>
-        <div className="col-md-10">
-        </div>
+        <div className="col-md-10"></div>
       </div>
     </div>
   );
