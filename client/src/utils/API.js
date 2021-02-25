@@ -23,9 +23,9 @@ export default {
   },
 
   
-  claimTrade: function (userID) {
-    console.log("Claim trade iniated", userID);
-    return axios.post("/api/claims/" + userID);
+  claimTrade: function (claimedData) {
+    console.log("Claim trade iniated", claimedData);
+    return axios.post("/api/claimed" , claimedData);
   },
 
   saveTrade: function (tradeData) {
