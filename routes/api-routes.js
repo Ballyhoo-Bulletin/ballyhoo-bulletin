@@ -35,32 +35,21 @@ router.get("/api/mytrades/:id", (req, res) => {
   });
 });
 
-
-// router.post("/api/claims/:id", (req, res) => {
-//   User.findOne({ userID: req.params.id })
-//     .then((dbUser) => {
-//       Claimed.create({
-//         userID: userID,
-//         trades: req.params.trades,
-//         email: dbUser.email,
-//         city: dbUser.city,
-//       });
-//       // res.json(dbUser);
-//       console.log("Claim updated", dbUser);
-//     })
-//     .then((dbUser) => {
-//       User.findOneAndUpdate(
-//         { userID: req.params.id },
-//         { $push: { claimed: _id } },
-//         { new: true }
-//       );
-//     })
-//     .catch((err) => {
-//       res.json(err);
-//     });
-//   console.log("Successfully into db.", dbUser);
-// });
-
+// Claiming trade
+router.post("/api/claimed", ({ body }, res) => {
+  console.log(body);
+  User.findOneAndUpdate(
+    { userID: body.currentUser },
+    { $push: { claimed: body.id} },
+    { new: true }
+  ).then((dbUser) => {
+    res.json(dbUser);
+    console.log("Trade updated", dbUser);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
+});
 
 // Creates User from signup page
 router.post("/api/user", ({ body }, res) => {
