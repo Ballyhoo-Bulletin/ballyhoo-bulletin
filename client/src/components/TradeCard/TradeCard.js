@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
-import placeholder from "../AppImg/placeholder3.jpg"
+import placeholder from "../AppImg/placeholder5.png"
 // import "./style.css";
 
 const styles = {
