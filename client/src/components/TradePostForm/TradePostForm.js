@@ -49,7 +49,7 @@ const TradePostForm = () => {
       <Form onSubmit={handleFormSubmit}>
       
         <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label className="letters">What do you want to trade?</Form.Label>
+          <Form.Label className="letters">I need:</Form.Label>
           <Form.Control
             name="need"
             onChange={(e) =>
