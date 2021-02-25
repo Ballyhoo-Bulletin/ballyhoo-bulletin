@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
 
   getTrade: function (userID) {
-    console.log(userID);
+    // console.log(userID);
     return axios.get("/api/trades/" + userID);
   },
 
@@ -11,7 +11,10 @@ export default {
     console.log(userID);
     return axios.get("/api/mytrades/" + userID);
   },
-
+  getMyClaimed: function (userID) {
+    console.log("Retrieving claimed", userID);
+    // return axios.get("/api/mytrades/" + userID);
+  },
 
   // deleteTrade: function (id) {
   //   return axios.delete("/api/trades/" + id);
