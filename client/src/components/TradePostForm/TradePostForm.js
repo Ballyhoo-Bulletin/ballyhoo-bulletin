@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
+import Axios from "axios";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
 import "./style.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-// import { useParams } from "react-router-dom";
+
 
 const TradePostForm = () => {
   const [options, setOptions] = useState([]);
@@ -14,8 +15,37 @@ const TradePostForm = () => {
   const { currentUser } = useAuth();
   const photoRef = useRef();
   const history = useHistory();
- 
 
+  const [fileInputState, setFileInputState] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+ 
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "dz1znszjs1");
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dz1znszjs/image/upload",
+      formData
+    ).then((response) => {
+      setSelectedFile(response.data.secure_url);
+
+      console.log(response.data.secure_url);
+    });
+
+    // previewFile(file);
+    
+    // setFileInputState(e.target.value);
+  };
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      console.log(reader.result);
+      setPreviewSource(reader.result);
+    };
+  };
   function handleSelectChange(e) {
     e.preventDefault();
     if (options.includes(e.target.value)) {
@@ -32,7 +62,7 @@ const TradePostForm = () => {
       need: need,
       trades: options + ", ",
       description: description,
-      // photo: photoRef.current.value,
+      img: selectedFile
     })
       .then((result) => {
         console.log(result);
@@ -40,8 +70,7 @@ const TradePostForm = () => {
       })
       .catch((err) => console.log(err));
 
-    // setNeed("");
-    // setdescription("");
+    
   };
 
   return (
@@ -90,7 +119,22 @@ const TradePostForm = () => {
           />
         </Form.Group>
         <Form.Group>
-          <Form.File className="letters" ref={photoRef} id="UploadPhoto" label="Upload Photo" />
+          {selectedFile === "" ? "" :<img src= {selectedFile}/> }
+          <Form.File
+            className="position-relative"
+        
+            name="file"
+            label="Upload Photo"
+            id="fileInput"
+            // type="file"
+            onChange={handleFileInputChange}
+            value={fileInputState}
+            className="form-input"
+            // isInvalid={!!errors.file}
+            // feedback={errors.file}
+            id="validationFormik107"
+            feedbackTooltip
+          />
         </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
