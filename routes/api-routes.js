@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const User = require("../models/user");
 const Trade = require("../models/trade");
 
-
 // Populates Homedashboard
 router.get("/api/trades/:id", (req, res) => {
   console.log(req.params.id);
@@ -20,7 +19,6 @@ router.get("/api/trades/:id", (req, res) => {
 });
 // Populates History page
 router.get("/api/mytrades/:id", (req, res) => {
-  
   User.findOne({ userID: req.params.id }).then((dbUser) => {
     // console.log("This works", dbUser);
     Trade.find({ userID: req.params.id })
@@ -33,14 +31,14 @@ router.get("/api/mytrades/:id", (req, res) => {
       });
   });
 });
-// Claimed trades on History page
 
+// Claimed trades on History page
 router.get("/api/claimed/:id", (req, res) => {
   console.log("Claimed trade", req.params.id);
   User.findOne({ userID: req.params.id })
     .populate("Trade")
     .then((dbClaimed) => {
-      // const history = dbClaimed.claimed.concat(dbClaimed.trades);
+      const history = dbClaimed.claimed.concat(dbClaimed.trades);
       console.log("Here is the claimed for this User:", history);
       Trade.find({ _id: { $in: history } }).then((tradeItems) => {
         console.log("Trade items", tradeItems);
@@ -51,8 +49,6 @@ router.get("/api/claimed/:id", (req, res) => {
       res.json(err);
     });
 });
-
-
 
 // Claiming trade
 router.post("/api/claimed", ({ body }, res) => {
