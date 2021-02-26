@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
-import "./style.css";
+// import "./style.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 // import { useParams } from "react-router-dom";
@@ -46,10 +46,9 @@ const TradePostForm = () => {
 
   return (
     <div>
-      <Form onSubmit={handleFormSubmit}>
-      
-        <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label className="letters">I need:</Form.Label>
+      <Form className="justify-content-center" onSubmit={handleFormSubmit}>
+        <Form.Group controlId="trade">
+          <Form.Label className="text-white">What do you want to trade?</Form.Label>
           <Form.Control
             name="need"
             onChange={(e) =>
@@ -60,7 +59,7 @@ const TradePostForm = () => {
           />
         </Form.Group>
         <Form.Group controlId="TradeGroups2">
-          <Form.Label className="letters">Trade you for:</Form.Label>
+          <Form.Label className="text-white">Trade you for:</Form.Label>
           <Form.Control
             value={options}
             onChange={handleSelectChange}
@@ -79,7 +78,7 @@ const TradePostForm = () => {
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="description">
-          <Form.Label className="letters">Description</Form.Label>
+          <Form.Label className="text-white">Description</Form.Label>
           <Form.Control
             name="description"
             onChange={(e) =>
@@ -89,12 +88,12 @@ const TradePostForm = () => {
             rows={3}
           />
         </Form.Group>
-        <Form.Group>
-          <Form.File className="letters" ref={photoRef} id="UploadPhoto" label="Upload Photo" />
+        <Form.Group className="text-white">
+          <Form.File ref={photoRef} id="UploadPhoto" label="Upload Photo" />
         </Form.Group>
         <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
-            <Button type="submit">Post Trade</Button>
+          <Col sm={{ span: 10, offset: 4 }}>
+            <Button  type="submit">Post Trade</Button>
           </Col>
         </Form.Group>
       </Form>

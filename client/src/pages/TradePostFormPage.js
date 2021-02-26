@@ -12,7 +12,7 @@ const TradePostFormPage = () => {
       <Header />
       <main className="main">
         <Container>
-          <h2 className="trade-title">Trade Post Form</h2>
+          <h2 className="trade-title text-white">Trade Post Form</h2>
           <TradePostForm />
         </Container>
       </main>
