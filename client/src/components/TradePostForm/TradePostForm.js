@@ -84,7 +84,6 @@ const TradePostForm = () => {
             onChange={(e) =>
               setDescription(e.target.value )
             }
-            
             as="textarea"
             rows={3}
           />

@@ -1,11 +1,16 @@
 import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
+import placeholder from "../AppImg/placeholder5.png"
+// import "./style.css";
 
 const styles = {
   text: {
     textAlign: "center",
   },
+  color: {
+    color: "white",
+  }
 };
 
 export default function TradeCard(props) {
@@ -13,20 +18,20 @@ export default function TradeCard(props) {
   // console.log(props);
   return (
     <div>
-      <Card id="tradecard" className="justify-content-center">
-        <Card.Img variant="top" src="holder.js/100px180" />
+      <Card style={{ width: "25rem", margin: "10px", backgroundColor: "#024994"}}>
+        <Card.Img variant="top" src={placeholder }/>
         <Card.Body style={styles.text}>
-          <Card.Title>User:  {props.email}</Card.Title>
+          <Card.Title style={styles.color}>User:  {props.email}</Card.Title>
           <ListGroup variant="flush">
-            <ListGroup.Item>I need: {props.need}</ListGroup.Item>
+            <ListGroup.Item><b>I need:</b> {props.need}</ListGroup.Item>
             <ListGroup.Item>
-              And can trade you for: {props.trades}
+              <b>And can trade you for:</b> {props.trades}
             </ListGroup.Item>
           </ListGroup>
-          <Card.Text>
-            Additional info:
+          <ListGroup.Item>
+           <b>Additional info:</b> 
             {`  ${props.description}`}
-          </Card.Text>
+          </ListGroup.Item>
           <Button {...props} variant="primary">Claim</Button>
         </Card.Body>
       </Card>

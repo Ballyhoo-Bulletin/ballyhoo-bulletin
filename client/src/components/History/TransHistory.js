@@ -1,15 +1,17 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import API from "../../utils/API";
-// import "./style.css";
-import TradeCard from "../TradeCard/HistoryCard";
+import "./style.css";
+import HistoryCard from "../TradeCard/HistoryCard";
 import SideNavbar from "../Nav/SideNavbar";
 import Header from "../Header/Header";
+import ClaimedHistory from "./ClaimedHistory";
 
 const TransHistory = () => {
   const { currentUser } = useAuth();
-  console.log(currentUser);
-  const { loading, value, error } = useAsync(API.getMyTrade, currentUser.uid);
+  // console.log(currentUser);
+  const asyncOne = useAsync(API.getMyTrade, currentUser.uid);
+  const { loading, value, error } = asyncOne;
   if (loading) return "loading...";
   if (error) {
     console.log(error);
@@ -18,17 +20,7 @@ const TransHistory = () => {
   if (value) {
     const dbData = value.data;
     console.log(dbData);
-
-    //   const { loading, value, error } = useAsync(API.getMyTrade);
-    //   if (loading) return "loading...";
-    //   if (error) {
-    //     console.log(error);
-    //     return <div>error</div>;
-    //   }
-    //   if (value) {
-    //     const dbData = value.data;
-    //     console.log(dbData);
-
+    
     function handleSubmit() {
       // console.log(data);
       //   console.log("Trade Claimed");
@@ -47,7 +39,7 @@ const TransHistory = () => {
         <Header />
         <SideNavbar />
         {dbData.map((data) => (
-          <TradeCard
+          <HistoryCard
             dbData={dbData}
             // image would go here once available
             id={data.id}
@@ -59,6 +51,9 @@ const TransHistory = () => {
             onClick={handleSubmit}
           />
         ))}
+  
+        <ClaimedHistory/>
+    
       </div>
     );
   }
@@ -71,9 +66,7 @@ const TransHistory = () => {
         <div className="col-md-2">
           <p>thrumup with icon</p>
         </div>
-        <div className="col-md-10">
-          
-        </div>
+        <div className="col-md-10"></div>
       </div>
     </div>
   );
@@ -103,6 +96,7 @@ const useAsync = (asyncFunction, ...args) => {
 
   useEffect(() => {
     execute();
+    
   }, [execute]);
 
   return { execute, loading, value, error };
