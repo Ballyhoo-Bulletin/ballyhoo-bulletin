@@ -16,15 +16,27 @@ const tradeSchema = new Schema({
   city: {
     type: String,
   },
-  // the "trade you for..."
-  trades: {
-    options: [{ type: String }],
-    image: {
-      type: Buffer.Schema.Types.ObjectId,
-      ref: "Image",
-    },
-  },
 
+  //for reference
+  // trades: {
+  //   options: [{ type: String }],
+  //   image: {
+  //     type: Buffer.Schema.Types.ObjectId,
+  //     ref: "Image",
+  //   },
+  // },
+
+  // the "trade you for..."
+  trades: [
+    {
+      type: String,
+    },
+  ],
+  claimed: [
+    {
+      type: String,
+    },
+  ],
   description: {
     type: String,
   },

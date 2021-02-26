@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
-import "./style.css";
+// import "./style.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import Axios from "axios";
@@ -23,19 +23,19 @@ const TradePostForm = () => {
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", "dz1znszjs1");
+    // const formData = new FormData();
+    // formData.append("file", file);
+    // formData.append("upload_preset", "dz1znszjs1");
 
-    Axios.post(
-      "https://api.cloudinary.com/v1_1/dz1znszjs/image/uploade",
-      formData
-    ).then((response) => {
-      console.log(response);
-    });
-    // previewFile(file);
-    // setSelectedFile(file);
-    // setFileInputState(e.target.value);
+    // Axios.post(
+    //   "https://api.cloudinary.com/v1_1/dz1znszjs/image/uploade",
+    //   formData
+    // ).then((response) => {
+    //   console.log(response);
+    // });
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
   };
 
   const previewFile = (file) => {
@@ -94,9 +94,9 @@ const TradePostForm = () => {
 
   return (
     <div>
-      <Form onSubmit={handleFormSubmit}>
-        <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label className="letters">
+      <Form className="justify-content-center" onSubmit={handleFormSubmit}>
+        <Form.Group controlId="trade">
+          <Form.Label className="text-white">
             What do you want to trade?
           </Form.Label>
           <Form.Control
@@ -107,7 +107,7 @@ const TradePostForm = () => {
           />
         </Form.Group>
         <Form.Group controlId="TradeGroups2">
-          <Form.Label className="letters">Trade you for:</Form.Label>
+          <Form.Label className="text-white">Trade you for:</Form.Label>
           <Form.Control
             value={options}
             onChange={handleSelectChange}
@@ -126,7 +126,7 @@ const TradePostForm = () => {
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="description">
-          <Form.Label className="letters">Description</Form.Label>
+          <Form.Label className="text-white">Description</Form.Label>
           <Form.Control
             name="description"
             onChange={(e) => setDescription(e.target.value)}
@@ -155,7 +155,7 @@ const TradePostForm = () => {
           />
         </Form.Group>
         <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
+          <Col sm={{ span: 10, offset: 4 }}>
             <Button type="submit">Post Trade</Button>
           </Col>
         </Form.Group>

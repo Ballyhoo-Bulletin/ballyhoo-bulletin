@@ -1,14 +1,16 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import API from "../../utils/API";
-// import "./style.css";
-import TradeCard from "../TradeCard/TradeCard";
+import "./style.css";
+import ClaimedCard from "../TradeCard/ClaimedCard";
 
-const HomeDashboard = () => {
+
+
+const ClaimedHistory = () => {
   const { currentUser } = useAuth();
-  
   // console.log(currentUser);
-  const { loading, value, error } = useAsync(API.getTrade, currentUser.uid);
+  const asyncOne = useAsync(API.getMyTrade, currentUser.uid);
+  const { loading, value, error } = asyncOne;
   if (loading) return "loading...";
   if (error) {
     console.log(error);
@@ -17,29 +19,25 @@ const HomeDashboard = () => {
   if (value) {
     const dbData = value.data;
     console.log(dbData);
-    // console.log(dbData);
-
-    function handleSubmit(data) {
-      console.log(data);
-      alert("You have claimed this trade!");
-      API.claimTrade({
-        currentUser: currentUser.uid,
-        id: data._id,
-        userID: data.userID,
-        email: data.email,
-        trades: data.trades,
-        description: data.description,
-      });
-        // .then((result) => {
-        //   return console.log("Claims data", result);
-        // })
-        // .catch((err) => console.log(err));
+    
+    function handleSubmit() {
+      // console.log(data);
+      //   console.log("Trade Claimed");
+      //   API.deleteTrade({
+      //   dbData:dbData
+      //   })
+      // .then((result) => {
+      //     console.log("Claims data", result);
+      //   })
+      //   .catch((err) => console.log(err));
+      alert("You deleted this post.");
     }
 
     return (
       <div>
+        
         {dbData.map((data) => (
-          <TradeCard
+          <ClaimedCard
             dbData={dbData}
             // image would go here once available
             id={data.id}
@@ -48,47 +46,30 @@ const HomeDashboard = () => {
             need={data.need}
             trades={data.trades}
             description={data.description}
-            // value={data}
-            // onChange={(e) => {
-            //   e.preventDefault();
-            //   // setClaimed(data);
-            //   // console.log(data);
-            // }}
-            // onClick={handleSubmit}
-            onClick={(e) => {
-              e.preventDefault();
-              handleSubmit(data);
-            }}
+            onClick={handleSubmit}
           />
         ))}
+
+    
       </div>
     );
-    // dbData only available here in this bracket
   }
-  // Thi values is showing up null && as data
-  // console.log(value);
 
-  // console.log("database DATA maybe?", dbData);
   return (
     <div className="container">
       <div>
-    
+        <p>Dashboard</p>
       </div>
       <div className="row">
         <div className="col-md-2">
-<<<<<<< HEAD
           <p>thrumup with icon</p>
-=======
-          
->>>>>>> develop
         </div>
         <div className="col-md-10"></div>
       </div>
     </div>
   );
 };
-
-export default HomeDashboard;
+export default ClaimedHistory;
 
 const useAsync = (asyncFunction, ...args) => {
   const [loading, setLoading] = useState(false);
@@ -113,6 +94,7 @@ const useAsync = (asyncFunction, ...args) => {
 
   useEffect(() => {
     execute();
+   
   }, [execute]);
 
   return { execute, loading, value, error };
