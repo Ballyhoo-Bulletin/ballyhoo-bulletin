@@ -17,11 +17,12 @@ const tradeSchema = new Schema({
     type: String,
   },
   // the "trade you for..."
-  trades: [
-    {
-      type: String,
+  trades: {
+    options: [{ type: String }],
+    image: {
+      type: Buffer,
     },
-  ],
+  },
 
   description: {
     type: String,

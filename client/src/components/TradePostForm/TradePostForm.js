@@ -12,9 +12,30 @@ const TradePostForm = () => {
   const [need, setNeed] = useState({});
   const [description, setDescription] = useState({});
   const { currentUser } = useAuth();
-  const photoRef = useRef();
+  // const photoRef = useRef();
   const history = useHistory();
+  //==============================================================================
+  const [fileInputState, setFileInputState] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
 
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
+  };
+
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      console.log(reader.result);
+      setPreviewSource(reader.result);
+    };
+  };
+
+  //========================================================================
   function handleSelectChange(e) {
     e.preventDefault();
     if (options.includes(e.target.value)) {
@@ -29,9 +50,9 @@ const TradePostForm = () => {
     API.saveTrade({
       userID: currentUser.uid,
       need: need,
-      trades: options + ", ",
+      trades: { options: options.join(",") },
       description: description,
-      // photo: photoRef.current.value,
+      file: previewSource,
     })
       .then((result) => {
         console.log(result);
@@ -41,6 +62,22 @@ const TradePostForm = () => {
 
     // setNeed("");
     // setdescription("");
+  };
+
+  const uploadImage = async (base64EncodedImage) => {
+    try {
+      await fetch("/api/upload", {
+        method: "POST",
+        body: JSON.stringify({ data: base64EncodedImage }),
+        headers: { "Content-Type": "application/json" },
+      });
+      setFileInputState("");
+      setPreviewSource("");
+      // setSuccessMsg("Image uploaded successfully");
+    } catch (err) {
+      console.error(err);
+      // setErrMsg("Something went wrong!");
+    }
   };
 
   return (
@@ -85,12 +122,24 @@ const TradePostForm = () => {
             rows={3}
           />
         </Form.Group>
+        {previewSource && (
+          <img width="200" height="200" src={previewSource} alt="img preview" />
+        )}
         <Form.Group>
           <Form.File
-            className="letters"
-            ref={photoRef}
-            id="UploadPhoto"
+            className="position-relative"
+            required
+            name="file"
             label="Upload Photo"
+            id="fileInput"
+            // type="file"
+            onChange={handleFileInputChange}
+            value={fileInputState}
+            className="form-input"
+            // isInvalid={!!errors.file}
+            // feedback={errors.file}
+            id="validationFormik107"
+            feedbackTooltip
           />
         </Form.Group>
         <Form.Group as={Row}>

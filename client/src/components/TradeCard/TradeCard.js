@@ -20,7 +20,7 @@ export default function TradeCard(props) {
           <ListGroup variant="flush">
             <ListGroup.Item>I need: {props.need}</ListGroup.Item>
             <ListGroup.Item>
-              And can trade you for: {props.trades}
+              And can trade you for: {props.trades.options}
             </ListGroup.Item>
           </ListGroup>
           <Card.Text>

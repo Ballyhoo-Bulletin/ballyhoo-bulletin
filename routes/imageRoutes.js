@@ -2,8 +2,10 @@
 //   imageController = require("../controllers/imageController"),
 //   router = require("express").Router();
 
-// router.post("/postimages", function (req, res) {
-//   console.log(req.body);
-// });
+// router.post(
+//   "/postImages",
+//   upload.imageUpload.any(),
+//   imageController.createImage
+// );
 
 // module.exports = router;

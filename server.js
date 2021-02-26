@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes/api-routes");
 const path = require("path");
@@ -7,10 +8,14 @@ const app = express();
 
 // const { cloudinary } = require("./config/cloudinaryConfig");
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
-// app.use(express.urlencoded({ limit: " 50mb" , extended: true }));
-app.use(express.json());
-// app.use(express.json({limit:"50mb"}));
+app.use(
+  bodyParser.urlencoded({
+    limit: " 50mb",
+    extended: true,
+    parameterLimit: 50000,
+  })
+);
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(express.static("public"));
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

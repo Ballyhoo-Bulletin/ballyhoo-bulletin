@@ -128,9 +128,19 @@ router.post("/api/user", ({ body }, res) => {
     });
 });
 router.post("/api/trades", ({ body }, res) => {
-  console.log(body);
+  let imageBinary;
+  if (body.file) {
+    imageBinary = new Buffer.from(body.file.split(",")[1], "base64");
+  }
+  delete body.file;
+  console.log("IMAGE BUFFER ", imageBinary);
   User.findOne({ userID: body.userID }).then((dbUser) => {
-    Trade.create({ ...body, city: dbUser.city, email: dbUser.email })
+    Trade.create({
+      ...body,
+      trades: { options: body.options, image: imageBinary },
+      city: dbUser.city,
+      email: dbUser.email,
+    })
       .then(({ _id }) =>
         User.findOneAndUpdate(
           { userID: body.userID },
