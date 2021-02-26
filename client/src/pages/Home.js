@@ -3,7 +3,6 @@ import Header from "../components/Header/Header";
 import { Container } from "react-bootstrap";
 import SideNavbar from "../components/Nav/SideNavbar";
 import HomeDashboard from "../components/HomeDashboard/HomeDashboard";
-import Footer from "../components/Footer/Footer";
 
 const styles = {
   margin: {
@@ -36,15 +35,4 @@ const Home = () => {
 
 export default Home;
 
-{
-  /* <Router>
-            <AuthProvider>
-              <Switch>
-                <PrivateRoute exact path="/" component={Home} />
-                <Route path="/signup" component={Signup} />
-                <Route path="/login" component={Login} />
-              </Switch>
-            </AuthProvider>
-          
-    </Router> */
-}
+

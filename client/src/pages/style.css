@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap');
+
 .trade-title {
   text-align: center;
+}
+
+h1 {
+  font-family: 'Ribeye Marrow', cursive;
+  color: white;
+  padding-bottom: 20px;
+}
+
+h2{ 
+  padding-bottom: 30px;
 }
