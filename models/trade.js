@@ -20,7 +20,9 @@ const tradeSchema = new Schema({
   trades: [{
     type: String,
   }],
-  
+  claimed: [{
+    type: String,
+  }],
   description: {
     type: String,
   },
