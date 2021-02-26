@@ -1,3 +1,8 @@
-.header {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Ribeye+Marrow&display=swap');
+
+
+h1 {
+  font-family: 'Ribeye Marrow', cursive;
+  justify-content: center;
+
 }
