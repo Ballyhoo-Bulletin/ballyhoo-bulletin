@@ -21,9 +21,9 @@ router.get("/api/trades/:id", (req, res) => {
 
 // Populates History page
 router.get("/api/mytrades/:id", (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   User.findOne({ userID: req.params.id }).then((dbUser) => {
-    console.log("This works", dbUser);
+    // console.log("This works", dbUser);
     Trade.find({ userID: req.params.id })
       .sort({ date: -1 })
       .then((dbTrade) => {
@@ -35,19 +35,48 @@ router.get("/api/mytrades/:id", (req, res) => {
   });
 });
 
+// Claimed trades on History page
+router.get("/api/claimed/:id", (req, res) => {
+  console.log("Claimed trade", req.params.id);
+  // Trade.find({ userID: req.params.id })
+  //     .sort({ date: -1 })
+  //     .then((dbTrade) => {
+  //       res.json(dbTrade);
+  //     })
+  //     .catch((err) => {
+  //       res.json(err);
+  //     });
+});
+
+// router.get("/api/claimed/:id", ({body}, res) => {
+//   console.log(body);
+//   User.findOne({ claimed: body._id })
+//     .then((dbUser) => {
+//       res.json(dbUser);
+//       console.log("found trade", dbUser)
+//     })
+//     .catch((err) => {
+//       res.json(err);
+//     });
+// });
+
 // Claiming trade
 router.post("/api/claimed", ({ body }, res) => {
-  console.log(body);
+  // console.log(req.params.id);
   User.findOneAndUpdate(
     { userID: body.currentUser },
-    { $push: { claimed: body.id} },
+    { $push: { claimed: body.id } },
     { new: true }
   ).then((dbUser) => {
-    res.json(dbUser);
-    console.log("Trade updated", dbUser);
-  })
-  .catch((err) => {
-    res.json(err);
+    console.log("This works", dbUser);
+    Trade.findOneAndUpdate({}, { $push: { claimed: body.id } }, { new: true })
+      .then((dbTrade) => {
+        console.log("Trade updated with claim", dbTrade);
+        res.json(dbTrade);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
   });
 });
 
