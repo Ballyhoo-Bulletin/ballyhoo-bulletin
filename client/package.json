@@ -8,6 +8,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-images-upload": "^1.2.8",

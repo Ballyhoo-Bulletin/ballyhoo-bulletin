@@ -4,6 +4,8 @@ import API from "../../utils/API";
 import "./style.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+import Axios from "axios";
+
 // import { useParams } from "react-router-dom";
 
 const TradePostForm = () => {
@@ -21,9 +23,19 @@ const TradePostForm = () => {
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
-    previewFile(file);
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "dz1znszjs1");
+
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dz1znszjs/image/uploade",
+      formData
+    ).then((response) => {
+      console.log(response);
+    });
+    // previewFile(file);
+    // setSelectedFile(file);
+    // setFileInputState(e.target.value);
   };
 
   const previewFile = (file) => {
