@@ -31,7 +31,6 @@ router.get("/api/mytrades/:id", (req, res) => {
       });
   });
 });
-
 // Claimed trades on History page
 router.get("/api/claimed/:id", (req, res) => {
   console.log("Claimed trade", req.params.id);
