@@ -20,7 +20,7 @@ router.get("/api/trades/:id", (req, res) => {
 });
 // Populates History page
 router.get("/api/mytrades/:id", (req, res) => {
-  // console.log(req.params.id);
+  
   User.findOne({ userID: req.params.id }).then((dbUser) => {
     // console.log("This works", dbUser);
     Trade.find({ userID: req.params.id })
