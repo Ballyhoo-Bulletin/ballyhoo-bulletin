@@ -18,7 +18,6 @@ router.get("/api/trades/:id", (req, res) => {
       });
   });
 });
-
 // Populates History page
 router.get("/api/mytrades/:id", (req, res) => {
   // console.log(req.params.id);
@@ -34,7 +33,6 @@ router.get("/api/mytrades/:id", (req, res) => {
       });
   });
 });
-
 // Claimed trades on History page
 
 router.get("/api/claimed/:id", (req, res) => {
@@ -113,7 +111,6 @@ router.post("/api/trades", ({ body }, res) => {
         res.json(err);
       });
   });
-
   console.log("Successfully into db.");
 });
 
