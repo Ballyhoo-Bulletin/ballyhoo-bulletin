@@ -51,12 +51,12 @@ const TransHistory = () => {
             onClick={handleSubmit}
           />
         ))}
+  
         <ClaimedHistory/>
     
       </div>
     );
   }
-
   return (
     <div className="container">
       <div>
@@ -96,9 +96,8 @@ const useAsync = (asyncFunction, ...args) => {
 
   useEffect(() => {
     execute();
-   
+    
   }, [execute]);
 
   return { execute, loading, value, error };
 };
-

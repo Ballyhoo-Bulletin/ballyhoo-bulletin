@@ -31,6 +31,14 @@ export default {
     return axios.post("/api/claimed" , claimedData);
   },
 
+  // getUser: function(id) {
+  //   console.log("User id is:",id);
+  //   return axios.get("/api/user/", id);
+  // },
+  // claimTrade: function (tradeData) {
+  //   console.log("Claim trade iniated", tradeData);
+  //   return axios.post("/api/claims", tradeData);
+  // },
   saveTrade: function (tradeData) {
     console.log("Trade data entered", tradeData);
     return axios.post("/api/trades", tradeData);

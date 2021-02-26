@@ -3,6 +3,7 @@ import { Card, Button, ListGroup } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import placeholder from "../AppImg/placeholder4.png"
 
+
 const styles = {
   text: {
     textAlign: "center",
