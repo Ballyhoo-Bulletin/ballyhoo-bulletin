@@ -20,7 +20,8 @@ const tradeSchema = new Schema({
   trades: {
     options: [{ type: String }],
     image: {
-      type: Buffer,
+      type: Buffer.Schema.Types.ObjectId,
+      ref: "Image",
     },
   },
 

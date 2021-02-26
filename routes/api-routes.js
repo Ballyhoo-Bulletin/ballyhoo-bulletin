@@ -5,7 +5,8 @@ const Trade = require("../models/trade");
 router.get("/api/trades/", (req, res) => {
   Trade.find({})
     .then((dbTrade) => {
-      res.json(dbTrade);
+      // res.json(dbTrade);
+      res.send(dbTrade.image);
     })
     .catch((err) => {
       res.json(err);
