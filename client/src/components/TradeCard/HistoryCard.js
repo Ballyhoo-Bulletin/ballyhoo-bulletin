@@ -4,7 +4,6 @@ import { useAuth } from "../../contexts/AuthContext";
 import placeholder from "../AppImg/placeholder4.png"
 import "./style.css"
 
-
 const styles = {
   text: {
     textAlign: "center",

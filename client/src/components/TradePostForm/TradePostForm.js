@@ -133,6 +133,7 @@ const TradePostForm = () => {
             id="validationFormik107"
             feedbackTooltip
           />
+
         </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 4 }}>
