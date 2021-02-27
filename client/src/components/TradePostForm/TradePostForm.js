@@ -34,9 +34,7 @@ const TradePostForm = () => {
       console.log(response.data.secure_url);
     });
 
-    // previewFile(file);
     
-    // setFileInputState(e.target.value);
   };
   const previewFile = (file) => {
     const reader = new FileReader();
@@ -46,6 +44,7 @@ const TradePostForm = () => {
       setPreviewSource(reader.result);
     };
   };
+
   function handleSelectChange(e) {
     e.preventDefault();
     if (options.includes(e.target.value)) {
@@ -126,7 +125,7 @@ const TradePostForm = () => {
             name="file"
             label="Upload Photo"
             id="fileInput"
-            // type="file"
+            type="file"
             onChange={handleFileInputChange}
             value={fileInputState}
             className="form-input"
