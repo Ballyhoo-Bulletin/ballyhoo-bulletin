@@ -25,7 +25,7 @@ function Dashboard() {
       <SideNavbar />
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4"></h2>
+          <h2 className="text-center mb-4 text-white"></h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <strong>Email:</strong>
           {currentUser.email}
@@ -39,8 +39,6 @@ function Dashboard() {
           Log Out
         </Button>
       </div>
-
-      {/* <TradeCard /> */}
     </>
   );
 }
