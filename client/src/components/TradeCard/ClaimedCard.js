@@ -1,7 +1,9 @@
 import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
+
 import { useAuth } from "../../contexts/AuthContext";
 import placeholder from "../AppImg/placeholder6.png"
+import "./style.css";
 
 const styles = {
   text: {
@@ -18,7 +20,7 @@ export default function ClaimedCard(props) {
   return (
     <div>
       <Card style={{ width: "25rem", margin: "10px", backgroundColor: "#C22130"  }}>
-        <Card.Img variant="top" src={placeholder} />
+        <Card.Img variant="top" src={props.img} />
         <Card.Body style={styles.text}>
           <Card.Title style={styles.color}>Claimed by:  {props.email}</Card.Title>
           <ListGroup variant="flush">
