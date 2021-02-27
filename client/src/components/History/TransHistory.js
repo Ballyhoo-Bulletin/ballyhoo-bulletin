@@ -45,6 +45,7 @@ const TransHistory = () => {
             id={data.id}
             key={data.id}
             email={data.email}
+            img={data.img}
             need={data.need}
             trades={data.trades}
             description={data.description}

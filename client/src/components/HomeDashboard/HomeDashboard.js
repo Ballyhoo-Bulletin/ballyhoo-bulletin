@@ -29,6 +29,7 @@ const HomeDashboard = () => {
         email: data.email,
         trades: data.trades,
         description: data.description,
+        img: data.img
       });
       // .then((result) => {
       //   return console.log("Claims data", result);
@@ -47,6 +48,7 @@ const HomeDashboard = () => {
             email={data.email}
             need={data.need}
             trades={data.trades}
+            img={data.img}
             description={data.description}
             // value={data}
             // onChange={(e) => {

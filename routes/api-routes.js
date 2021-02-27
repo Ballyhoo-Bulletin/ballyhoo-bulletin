@@ -2,16 +2,6 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/user");
 const Trade = require("../models/trade");
-router.get("/api/trades/", (req, res) => {
-  Trade.find({})
-    .then((dbTrade) => {
-      res.json(dbTrade);
-      // res.send(dbTrade.image);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
 
 // Populates Homedashboard
 router.get("/api/trades/:id", (req, res) => {
@@ -47,7 +37,7 @@ router.get("/api/claimed/:id", (req, res) => {
   User.findOne({ userID: req.params.id })
     .populate("Trade")
     .then((dbClaimed) => {
-      // const history = dbClaimed.claimed.concat(dbClaimed.trades);
+      const history = dbClaimed.claimed.concat(dbClaimed.trades);
       console.log("Here is the claimed for this User:", history);
       Trade.find({ _id: { $in: history } }).then((tradeItems) => {
         console.log("Trade items", tradeItems);
@@ -129,7 +119,6 @@ router.post("/api/trades", ({ body }, res) => {
         res.json(err);
       });
   });
-  console.log("Successfully into db.");
 });
 
 module.exports = router;

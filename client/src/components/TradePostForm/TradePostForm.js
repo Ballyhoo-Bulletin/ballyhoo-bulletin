@@ -1,12 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import Axios from "axios";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import API from "../../utils/API";
 // import "./style.css";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-import Axios from "axios";
-
-// import { useParams } from "react-router-dom";
 
 const TradePostForm = () => {
   const [options, setOptions] = useState([]);
@@ -16,7 +14,7 @@ const TradePostForm = () => {
   const { currentUser } = useAuth();
   // const photoRef = useRef();
   const history = useHistory();
-  //==============================================================================
+
   const [fileInputState, setFileInputState] = useState("");
   const [previewSource, setPreviewSource] = useState("");
   const [selectedFile, setSelectedFile] = useState();
@@ -26,26 +24,26 @@ const TradePostForm = () => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "dz1znszjs1");
-
     Axios.post(
-      "https://api.cloudinary.com/v1_1/dz1znszjs/image/uploade",
+      "https://api.cloudinary.com/v1_1/dz1znszjs/image/upload",
       formData
     ).then((response) => {
-      console.log(response);
+      setSelectedFile(response.data.secure_url);
+
+      console.log(response.data.secure_url);
     });
     // previewFile(file);
     // setSelectedFile(file);
     // setFileInputState(e.target.value);
   };
-
-  const previewFile = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      console.log(reader.result);
-      setPreviewSource(reader.result);
-    };
-  };
+  // const previewFile = (file) => {
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onloadend = () => {
+  //     console.log(reader.result);
+  //     setPreviewSource(reader.result);
+  //   };
+  // };
 
   //========================================================================
   function handleSelectChange(e) {
@@ -64,16 +62,14 @@ const TradePostForm = () => {
       need: need,
       trades: { options: options.join(",") },
       description: description,
-      file: previewSource,
+      img: selectedFile,
+      // file: previewSource,
     })
       .then((result) => {
         console.log(result);
         history.push("/");
       })
       .catch((err) => console.log(err));
-
-    // setNeed("");
-    // setdescription("");
   };
 
   const uploadImage = async (base64EncodedImage) => {
@@ -134,17 +130,22 @@ const TradePostForm = () => {
             rows={3}
           />
         </Form.Group>
-        {previewSource && (
-          <img width="200" height="200" src={previewSource} alt="img preview" />
-        )}
         <Form.Group>
+          {selectedFile === "" ? "" : <img src={selectedFile} />}
+          {/* {previewSource && (
+            <img
+              width="200"
+              height="200"
+              src={previewSource}
+              alt="img preview"
+            />
+          )} */}
           <Form.File
             className="position-relative"
-            // required
             name="file"
             label="Upload Photo"
             id="fileInput"
-            // type="file"
+            type="file"
             onChange={handleFileInputChange}
             value={fileInputState}
             className="form-input"

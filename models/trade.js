@@ -16,6 +16,7 @@ const tradeSchema = new Schema({
   city: {
     type: String,
   },
+<<<<<<< HEAD
 
   //for reference
   // trades: {
@@ -26,6 +27,11 @@ const tradeSchema = new Schema({
   //   },
   // },
 
+=======
+  img: {
+    type: String,
+  },
+>>>>>>> develop
   // the "trade you for..."
   trades: [
     {
