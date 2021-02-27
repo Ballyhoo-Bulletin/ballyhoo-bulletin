@@ -79,13 +79,14 @@ router.post("/api/user", ({ body }, res) => {
     .catch((err) => {
       res.json(err);
     });
+   
 });
 
 // Creates Trades from TradePostForm
 router.post("/api/trades", ({ body }, res) => {
   console.log(body);
   User.findOne({ userID: body.userID }).then((dbUser) => {
-    Trade.create({ ...body, city: dbUser.city, email: dbUser.email })
+    Trade.create({ ...body, city: dbUser.city, email: dbUser.email})
       .then(({ _id }) =>
         User.findOneAndUpdate(
           { userID: body.userID },
@@ -106,7 +107,7 @@ router.post("/api/trades", ({ body }, res) => {
         res.json(err);
       });
   });
-  console.log("Successfully into db.");
+  
 });
 
 module.exports = router;
