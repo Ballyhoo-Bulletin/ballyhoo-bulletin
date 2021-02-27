@@ -42,6 +42,7 @@ const ClaimedHistory = () => {
             // image would go here once available
             id={data.id}
             key={data.id}
+            img={data.img}
             email={data.email}
             need={data.need}
             trades={data.trades}

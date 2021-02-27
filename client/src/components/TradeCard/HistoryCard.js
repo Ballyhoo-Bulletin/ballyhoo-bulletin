@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import placeholder from "../AppImg/placeholder4.png"
+import "./style.css"
 
 
 const styles = {
@@ -19,7 +20,7 @@ export default function HistoryCard(props) {
   return (
     <div>
       <Card style={{ width: "25rem", margin: "10px", backgroundColor: "#486577"  }}>
-        <Card.Img variant="top" src={placeholder} />
+        <Card.Img variant="top" src={props.img} />
         <Card.Body style={styles.text}>
           <Card.Title style={styles.color}>User:  {props.email}</Card.Title>
           <ListGroup variant="flush">

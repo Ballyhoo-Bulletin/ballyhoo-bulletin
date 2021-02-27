@@ -16,6 +16,9 @@ const tradeSchema = new Schema({
   city: {
     type: String,
   },
+  img: {
+    type: String,
+  },
   // the "trade you for..."
   trades: [{
     type: String,

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/user");
 const Trade = require("../models/trade");
+
 // Populates Homedashboard
 router.get("/api/trades/:id", (req, res) => {
   console.log(req.params.id);
@@ -36,7 +37,7 @@ router.get("/api/claimed/:id", (req, res) => {
   User.findOne({ userID: req.params.id })
     .populate("Trade")
     .then((dbClaimed) => {
-      // const history = dbClaimed.claimed.concat(dbClaimed.trades);
+      const history = dbClaimed.claimed.concat(dbClaimed.trades);
       console.log("Here is the claimed for this User:", history);
       Trade.find({ _id: { $in: history } }).then((tradeItems) => {
         console.log("Trade items", tradeItems);
@@ -78,13 +79,14 @@ router.post("/api/user", ({ body }, res) => {
     .catch((err) => {
       res.json(err);
     });
+   
 });
 
 // Creates Trades from TradePostForm
 router.post("/api/trades", ({ body }, res) => {
   console.log(body);
   User.findOne({ userID: body.userID }).then((dbUser) => {
-    Trade.create({ ...body, city: dbUser.city, email: dbUser.email })
+    Trade.create({ ...body, city: dbUser.city, email: dbUser.email})
       .then(({ _id }) =>
         User.findOneAndUpdate(
           { userID: body.userID },
@@ -105,7 +107,7 @@ router.post("/api/trades", ({ body }, res) => {
         res.json(err);
       });
   });
-  console.log("Successfully into db.");
+  
 });
 
 module.exports = router;
