@@ -1,11 +1,8 @@
 // import React from "react";
 // import { Button } from "react-bootstrap";
 // import API from "../../utils/API";
-
-// // import React from "react";
-// // import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { useState } from "react";
-// // import API from "../../utils/API";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // function ThumbUpCard({ postId = "no post id yet", like = 0, dislike = 0 }) {
 //   const [count, setCount] = useState({ like, dislike });

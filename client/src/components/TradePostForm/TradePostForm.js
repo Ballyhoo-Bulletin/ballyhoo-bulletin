@@ -23,19 +23,19 @@ const TradePostForm = () => {
 
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // formData.append("upload_preset", "dz1znszjs1");
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "dz1znszjs1");
 
-    // Axios.post(
-    //   "https://api.cloudinary.com/v1_1/dz1znszjs/image/uploade",
-    //   formData
-    // ).then((response) => {
-    //   console.log(response);
-    // });
-    previewFile(file);
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dz1znszjs/image/uploade",
+      formData
+    ).then((response) => {
+      console.log(response);
+    });
+    // previewFile(file);
+    // setSelectedFile(file);
+    // setFileInputState(e.target.value);
   };
 
   const previewFile = (file) => {
@@ -140,7 +140,7 @@ const TradePostForm = () => {
         <Form.Group>
           <Form.File
             className="position-relative"
-            required
+            // required
             name="file"
             label="Upload Photo"
             id="fileInput"

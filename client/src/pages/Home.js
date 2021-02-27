@@ -3,10 +3,6 @@ import Header from "../components/Header/Header";
 import { Container } from "react-bootstrap";
 import SideNavbar from "../components/Nav/SideNavbar";
 import HomeDashboard from "../components/HomeDashboard/HomeDashboard";
-<<<<<<< HEAD
-// import Footer from "../components/Footer/Footer";
-=======
->>>>>>> develop
 
 const styles = {
   margin: {
@@ -19,24 +15,22 @@ const Home = () => {
       <SideNavbar />
       <Header />
       {/* <main className="main"> */}
-        {/* <Container> */}
-          <div className="container">
-            <div className="row">
-              {/* <div className="col-md-2">
+      {/* <Container> */}
+      <div className="container">
+        <div className="row">
+          {/* <div className="col-md-2">
                 <SideNavbar />
               </div> */}
-              <div className="col-md-10" style={styles.margin}>
-                <HomeDashboard />
-              </div>
-            </div>
+          <div className="col-md-10" style={styles.margin}>
+            <HomeDashboard />
           </div>
-        {/* </Container> */}
-        {/* <Footer /> */}
+        </div>
+      </div>
+      {/* </Container> */}
+      {/* <Footer /> */}
       {/* </main> */}
     </div>
   );
 };
 
 export default Home;
-
-

@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import placeholder from "../AppImg/placeholder5.png";
+// import LikeDislikeBtnGroup from "../ThumbUpCard/ThumbUpCard";
 // import "./style.css";
 
 const styles = {
@@ -39,6 +40,7 @@ export default function TradeCard(props) {
           <Button {...props} variant="primary">
             Claim
           </Button>
+          {/* <LikeDislikeBtnGroup {...props} /> */}
         </Card.Body>
       </Card>
     </div>

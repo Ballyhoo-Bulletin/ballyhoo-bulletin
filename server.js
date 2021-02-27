@@ -6,7 +6,7 @@
 // const PORT = process.env.PORT || 3001;
 // const app = express();
 
-const { cloudinary } = require("./config/cloudinaryConfig");
+// const { cloudinary } = require("./config/cloudinaryConfig");
 // Define middleware here
 // app.use(
 //   bodyParser.urlencoded({

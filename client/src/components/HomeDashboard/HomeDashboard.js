@@ -6,7 +6,7 @@ import TradeCard from "../TradeCard/TradeCard";
 
 const HomeDashboard = () => {
   const { currentUser } = useAuth();
-  
+
   // console.log(currentUser);
   const { loading, value, error } = useAsync(API.getTrade, currentUser.uid);
   if (loading) return "loading...";
@@ -30,10 +30,10 @@ const HomeDashboard = () => {
         trades: data.trades,
         description: data.description,
       });
-        // .then((result) => {
-        //   return console.log("Claims data", result);
-        // })
-        // .catch((err) => console.log(err));
+      // .then((result) => {
+      //   return console.log("Claims data", result);
+      // })
+      // .catch((err) => console.log(err));
     }
 
     return (
@@ -71,17 +71,9 @@ const HomeDashboard = () => {
   // console.log("database DATA maybe?", dbData);
   return (
     <div className="container">
-      <div>
-    
-      </div>
+      <div></div>
       <div className="row">
-        <div className="col-md-2">
-<<<<<<< HEAD
-          <p>thrumup with icon</p>
-=======
-          
->>>>>>> develop
-        </div>
+        <div className="col-md-2"></div>
         <div className="col-md-10"></div>
       </div>
     </div>

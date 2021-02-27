@@ -24,10 +24,9 @@ export default {
     return axios.post("/api/user", userData);
   },
 
-  
   claimTrade: function (claimedData) {
     console.log("Claim trade iniated", claimedData);
-    return axios.post("/api/claimed" , claimedData);
+    return axios.post("/api/claimed", claimedData);
   },
 
   // getUser: function(id) {
@@ -43,7 +42,7 @@ export default {
     return axios.post("/api/trades", tradeData);
   },
 
-  // likeDislike: function (id, action) {
-  //   return axios.put("/api/posts/" + id, { action });
+  // likeDislike: function (postId, action) {
+  //   return axios.put("/api/posts/" + postId, { action });
   // },
 };
