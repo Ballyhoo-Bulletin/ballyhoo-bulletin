@@ -20,7 +20,7 @@ const TransHistory = () => {
   if (value) {
     const dbData = value.data;
     console.log(dbData);
-    
+
     function handleSubmit() {
       // console.log(data);
       //   console.log("Trade Claimed");
@@ -52,9 +52,8 @@ const TransHistory = () => {
             onClick={handleSubmit}
           />
         ))}
-  
-        <ClaimedHistory/>
-    
+
+        <ClaimedHistory />
       </div>
     );
   }
@@ -64,9 +63,7 @@ const TransHistory = () => {
         <p>Dashboard</p>
       </div>
       <div className="row">
-        <div className="col-md-2">
-          <p>thrumup with icon</p>
-        </div>
+        <div className="col-md-2">{/* <p>thrumup with icon</p> */}</div>
         <div className="col-md-10"></div>
       </div>
     </div>
@@ -97,7 +94,6 @@ const useAsync = (asyncFunction, ...args) => {
 
   useEffect(() => {
     execute();
-    
   }, [execute]);
 
   return { execute, loading, value, error };

@@ -16,7 +16,6 @@ const tradeSchema = new Schema({
   city: {
     type: String,
   },
-<<<<<<< HEAD
 
   //for reference
   // trades: {
@@ -27,11 +26,9 @@ const tradeSchema = new Schema({
   //   },
   // },
 
-=======
   img: {
     type: String,
   },
->>>>>>> develop
   // the "trade you for..."
   trades: [
     {
@@ -50,10 +47,6 @@ const tradeSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-
-  // uploadImages: {
-  //   type: String,
-  // },
 });
 
 const Trade = mongoose.model("Trade", tradeSchema);

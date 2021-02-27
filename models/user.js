@@ -21,15 +21,6 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Trade",
     },
-
-    // {
-    // loadImages: [
-    //       {
-    //         type: Schema.Types.ObjectId,
-    //         ref: "Image",
-    //       }
-    //     ],
-    // }
   ],
 
   claimed: [

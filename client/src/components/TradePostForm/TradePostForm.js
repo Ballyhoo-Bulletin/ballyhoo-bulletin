@@ -12,11 +12,11 @@ const TradePostForm = () => {
   const [need, setNeed] = useState({});
   const [description, setDescription] = useState({});
   const { currentUser } = useAuth();
-  // const photoRef = useRef();
+  const photoRef = useRef();
   const history = useHistory();
 
   const [fileInputState, setFileInputState] = useState("");
-  const [previewSource, setPreviewSource] = useState("");
+  // const [previewSource, setPreviewSource] = useState("");
   const [selectedFile, setSelectedFile] = useState();
 
   const handleFileInputChange = (e) => {
@@ -60,7 +60,8 @@ const TradePostForm = () => {
     API.saveTrade({
       userID: currentUser.uid,
       need: need,
-      trades: { options: options.join(",") },
+      trades: options + ", ",
+      // trades: { options: options.join(",") },
       description: description,
       img: selectedFile,
       // file: previewSource,
@@ -72,21 +73,21 @@ const TradePostForm = () => {
       .catch((err) => console.log(err));
   };
 
-  const uploadImage = async (base64EncodedImage) => {
-    try {
-      await fetch("/api/upload", {
-        method: "POST",
-        body: JSON.stringify({ data: base64EncodedImage }),
-        headers: { "Content-Type": "application/json" },
-      });
-      setFileInputState("");
-      setPreviewSource("");
-      // setSuccessMsg("Image uploaded successfully");
-    } catch (err) {
-      console.error(err);
-      // setErrMsg("Something went wrong!");
-    }
-  };
+  // const uploadImage = async (base64EncodedImage) => {
+  //   try {
+  //     await fetch("/api/upload", {
+  //       method: "POST",
+  //       body: JSON.stringify({ data: base64EncodedImage }),
+  //       headers: { "Content-Type": "application/json" },
+  //     });
+  //     setFileInputState("");
+  //     setPreviewSource("");
+  // setSuccessMsg("Image uploaded successfully");
+  // } catch (err) {
+  //   console.error(err);
+  // setErrMsg("Something went wrong!");
+  //   }
+  // };
 
   return (
     <div>

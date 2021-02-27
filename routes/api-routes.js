@@ -83,19 +83,6 @@ router.post("/api/user", ({ body }, res) => {
 
 // Creates Trades from TradePostForm
 router.post("/api/trades", ({ body }, res) => {
-  //   let imageBinary;
-  //   if (body.file) {
-  //     imageBinary = new Buffer.from(body.file.split(",")[1], "base64");
-  //   }
-  //   delete body.file;
-  //   console.log("IMAGE BUFFER ", imageBinary);
-  //   User.findOne({ userID: body.userID }).then((dbUser) => {
-  //     Trade.create({
-  //       ...body,
-  //       trades: { options: body.options, image: imageBinary },
-  //       city: dbUser.city,
-  //       email: dbUser.email,
-  //     })
   console.log(body);
   User.findOne({ userID: body.userID }).then((dbUser) => {
     Trade.create({ ...body, city: dbUser.city, email: dbUser.email })

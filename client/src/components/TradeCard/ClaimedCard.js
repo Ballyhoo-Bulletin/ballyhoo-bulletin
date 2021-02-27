@@ -1,12 +1,8 @@
 import React from "react";
 import { Card, Button, ListGroup } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
-<<<<<<< HEAD
 import placeholder from "../AppImg/placeholder6.png";
-=======
-import placeholder from "../AppImg/placeholder6.png"
 import "./style.css";
->>>>>>> develop
 
 const styles = {
   text: {
@@ -22,16 +18,11 @@ export default function ClaimedCard(props) {
   // console.log(props);
   return (
     <div>
-<<<<<<< HEAD
       <Card
         style={{ width: "25rem", margin: "10px", backgroundColor: "#C22130" }}
       >
-        <Card.Img variant="top" src={placeholder} />
-=======
-      <Card style={{ width: "25rem", margin: "10px", backgroundColor: "#C22130"  }}>
         <Card.Img variant="top" src={props.img} />
 
->>>>>>> develop
         <Card.Body style={styles.text}>
           <Card.Title style={styles.color}>
             Claimed by: {props.email}
