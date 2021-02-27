@@ -35,7 +35,31 @@ git clone git@github.com:Ballyhoo-Bulletin/ballyhoo-bulletin.git
 npm i to install dependencies
 
 ## Usage
-(put demo here?)
+
+#### signup page
+![ballyhoo-signup-small](https://user-images.githubusercontent.com/68616301/109402347-0aa2b000-790a-11eb-970a-d935b8a79d61.gif)
+
+#### dashboard/ community feed page
+
+![ballyhoo-dashboard-small](https://user-images.githubusercontent.com/68616301/109402559-ab459f80-790b-11eb-9e06-488c169484bd.gif)
+
+#### TradePost
+
+- <b>Form:
+
+![ballyhoo-tradepost-form](https://user-images.githubusercontent.com/68616301/109402844-fa8ccf80-790d-11eb-9e26-90f4ad8f8a1e.gif)
+- <b>Image File Upload </b>
+
+![ballyhoo-image](https://user-images.githubusercontent.com/68616301/109402886-5c4d3980-790e-11eb-908c-81ffee5c3398.gif)
+
+#### History/claim page
+![ballyhoo-history](https://user-images.githubusercontent.com/68616301/109402924-b6e69580-790e-11eb-93fa-37ed7dad01d6.gif)
+
+#### Login
+
+![ballyhoo-login](https://user-images.githubusercontent.com/68616301/109402967-15137880-790f-11eb-98e0-3cd0f4f8cb99.gif)
+
+Logout is redirected to login page as well.
 
 ## Contributing
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
